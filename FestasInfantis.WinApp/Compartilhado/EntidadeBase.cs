@@ -6,6 +6,6 @@
 
         public abstract void AtualizarInformacoes(T registroAtualizado);
 
-        public abstract List<string> Validate();
+        public abstract List<string> Validar();
     }
 }
