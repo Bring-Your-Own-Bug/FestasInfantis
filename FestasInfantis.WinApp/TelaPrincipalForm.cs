@@ -84,5 +84,30 @@ namespace FestasInfantis.WinApp
             btnEditar.Enabled = controladorBase.EhEditarHabilitado;
             btnExcluir.Enabled = controladorBase.EhExcluirHabilitado;
         }
+
+        private void btnInserir_Click(object sender, EventArgs e)
+        {
+            _controlador.Inserir();
+        }
+
+        private void btnEditar_Click(object sender, EventArgs e)
+        {
+            _controlador.Editar();
+        }
+
+        private void btnExcluir_Click(object sender, EventArgs e)
+        {
+            _controlador.Excluir();
+        }
+
+        private void btnAdicionarItem_Click(object sender, EventArgs e)
+        {
+            _controlador.AdicionarItem();
+        }
+
+        private void btnDefinirValor_Click(object sender, EventArgs e)
+        {
+            _controlador.DefinirValor();
+        }
     }
 }

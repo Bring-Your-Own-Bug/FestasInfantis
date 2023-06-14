@@ -5,7 +5,6 @@
         private IRepositorioTema _repositorioTema;
         public ControladorTema(IRepositorioTema repositorioTema)
         {
-
             _repositorioTema = repositorioTema;
         }
 

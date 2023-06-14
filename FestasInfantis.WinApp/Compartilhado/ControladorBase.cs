@@ -16,6 +16,14 @@
 
         public abstract void Excluir();
 
+        public virtual void AdicionarItem()
+        {
+        }
+
+        public virtual void DefinirValor()
+        {
+        }
+
         public abstract UserControl ObterGrid();
 
         public abstract string ObterTipoCadastro();
