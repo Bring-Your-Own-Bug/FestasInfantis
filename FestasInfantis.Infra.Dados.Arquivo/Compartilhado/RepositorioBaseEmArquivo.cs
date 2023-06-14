@@ -10,6 +10,8 @@ namespace FestasInfantis.Infra.Dados.Arquivo.Compartilhado
         public RepositorioBaseEmArquivo(ContextoDados contextoDados)
         {
             this.contextoDados = contextoDados;
+
+            AtualizarContador();
         }
 
         public void Inserir(T registro)

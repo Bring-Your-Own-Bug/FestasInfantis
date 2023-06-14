@@ -110,6 +110,7 @@ namespace FestasInfantis.WinApp.ModuloTema
                 foreach (ItemTema item in itensParaAdd)
                 {
                     temaSelecionado.AdicionarItem(item);
+                    temaSelecionado.ValorTotal += item.Valor;
                 }
 
                 _repositorioTema.Editar(temaSelecionado.Id, temaSelecionado);
