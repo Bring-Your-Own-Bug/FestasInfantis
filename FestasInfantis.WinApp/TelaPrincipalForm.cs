@@ -69,6 +69,19 @@ namespace FestasInfantis.WinApp
             ConfigurarToolTips(controladorBase);
 
             ConfigurarStatusBotoes(controladorBase);
+
+            ConfigurarUserControl(controladorBase);
+        }
+
+        private void ConfigurarUserControl(ControladorBase controladorBase)
+        {
+            UserControl userControl = controladorBase.ObterUserControl();
+
+            userControl.Dock = DockStyle.Fill;
+
+            painelRegistros.Controls.Clear();
+
+            painelRegistros.Controls.Add(userControl);
         }
 
         private void ConfigurarToolTips(ControladorBase controladorBase)

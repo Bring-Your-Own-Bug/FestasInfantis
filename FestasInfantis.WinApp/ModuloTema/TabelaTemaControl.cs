@@ -11,6 +11,8 @@
             grid.ConfigurarGridZebrado();
 
             grid.ConfigurarGridSomenteLeitura();
+
+            grid.Columns["id"].Width = 25;
         }
 
         private void ConfigurarColunas()
