@@ -34,7 +34,7 @@
             return "Cadastro de Tema";
         }
 
-        public override UserControl ObterGrid()
+        public override UserControl ObterUserControl()
         {
             throw new NotImplementedException();
         }
