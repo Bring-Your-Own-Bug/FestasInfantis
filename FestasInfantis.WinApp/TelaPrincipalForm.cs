@@ -1,4 +1,5 @@
 using FestasInfantis.WinApp.ModuloTema;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace FestasInfantis.WinApp
 {
@@ -30,12 +31,12 @@ namespace FestasInfantis.WinApp
 
         private void clienteMenuItem_Click(object sender, EventArgs e)
         {
-
+            
         }
 
         private void festaMenuItem_Click(object sender, EventArgs e)
         {
-
+            
         }
 
         private void aluguelMenuItem_Click(object sender, EventArgs e)
@@ -45,7 +46,7 @@ namespace FestasInfantis.WinApp
 
         private void temaMenuItem_Click(object sender, EventArgs e)
         {
-
+            _controlador = new ControladorTema(_repositorioTema);
         }
     }
 }
