@@ -6,7 +6,7 @@
         {
             InitializeComponent();
 
-            ConfigurarColunas()
+            ConfigurarColunas();
 
             grid.ConfigurarGridZebrado();
 
