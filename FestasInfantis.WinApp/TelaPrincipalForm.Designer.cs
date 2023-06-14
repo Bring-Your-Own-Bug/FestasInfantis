@@ -68,24 +68,28 @@
             clienteMenuItem.Name = "clienteMenuItem";
             clienteMenuItem.Size = new Size(180, 22);
             clienteMenuItem.Text = "Cliente";
+            clienteMenuItem.Click += clienteMenuItem_Click;
             // 
             // festaMenuItem
             // 
             festaMenuItem.Name = "festaMenuItem";
             festaMenuItem.Size = new Size(180, 22);
             festaMenuItem.Text = "Festa";
+            festaMenuItem.Click += festaMenuItem_Click;
             // 
             // aluguelMenuItem
             // 
             aluguelMenuItem.Name = "aluguelMenuItem";
             aluguelMenuItem.Size = new Size(180, 22);
             aluguelMenuItem.Text = "Aluguel";
+            aluguelMenuItem.Click += aluguelMenuItem_Click;
             // 
             // temaMenuItem
             // 
             temaMenuItem.Name = "temaMenuItem";
             temaMenuItem.Size = new Size(180, 22);
             temaMenuItem.Text = "Tema";
+            temaMenuItem.Click += temaMenuItem_Click;
             // 
             // statusStrip1
             // 
@@ -147,12 +151,12 @@
             // toolStripSeparator1
             // 
             toolStripSeparator1.Name = "toolStripSeparator1";
-            toolStripSeparator1.Size = new Size(6, 41);
+            toolStripSeparator1.Size = new Size(6, 45);
             // 
             // lblTipoCadastro
             // 
             lblTipoCadastro.Name = "lblTipoCadastro";
-            lblTipoCadastro.Size = new Size(90, 38);
+            lblTipoCadastro.Size = new Size(90, 42);
             lblTipoCadastro.Text = "lblTipoCadastro";
             // 
             // TelaPrincipalForm
