@@ -127,7 +127,7 @@
             Controls.Add(txtId);
             Controls.Add(label1);
             Name = "TelaTemaForm";
-            Text = "TelaTemaForm";
+            Text = "Cadastro de Tema";
             ResumeLayout(false);
             PerformLayout();
         }

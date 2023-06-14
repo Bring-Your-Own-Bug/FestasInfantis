@@ -45,6 +45,7 @@
             btnDefinirValor = new ToolStripButton();
             lblTipoCadastro = new ToolStripLabel();
             painelRegistros = new Panel();
+            toolStripSeparator2 = new ToolStripSeparator();
             menuStrip1.SuspendLayout();
             statusStrip1.SuspendLayout();
             toolbar.SuspendLayout();
@@ -112,7 +113,7 @@
             // toolbar
             // 
             toolbar.Enabled = false;
-            toolbar.Items.AddRange(new ToolStripItem[] { btnInserir, btnEditar, btnExcluir, toolStripSeparator1, btnAdicionarItem, btnDefinirValor, lblTipoCadastro });
+            toolbar.Items.AddRange(new ToolStripItem[] { btnInserir, btnEditar, btnExcluir, toolStripSeparator1, btnAdicionarItem, btnDefinirValor, toolStripSeparator2, lblTipoCadastro });
             toolbar.Location = new Point(0, 24);
             toolbar.Name = "toolbar";
             toolbar.Size = new Size(800, 45);
@@ -196,6 +197,11 @@
             painelRegistros.Size = new Size(800, 359);
             painelRegistros.TabIndex = 3;
             // 
+            // toolStripSeparator2
+            // 
+            toolStripSeparator2.Name = "toolStripSeparator2";
+            toolStripSeparator2.Size = new Size(6, 45);
+            // 
             // TelaPrincipalForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -240,5 +246,6 @@
         private ToolStripButton btnAdicionarItem;
         private ToolStripButton btnDefinirValor;
         private Panel painelRegistros;
+        private ToolStripSeparator toolStripSeparator2;
     }
 }
