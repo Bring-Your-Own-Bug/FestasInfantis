@@ -14,7 +14,9 @@ namespace FestasInfantis.WinApp.ModuloTema
 
         public Tema ObterTema()
         {
-            int id = Convert.ToInt32();
+            int id = Convert.ToInt32(txtId.Text);
+
+            string nome = txtTema.Text;
         }
     }
 }
