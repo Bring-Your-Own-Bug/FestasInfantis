@@ -73,6 +73,7 @@
             // btnGravar
             // 
             btnGravar.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            btnGravar.DialogResult = DialogResult.OK;
             btnGravar.Location = new Point(212, 139);
             btnGravar.Name = "btnGravar";
             btnGravar.Size = new Size(89, 45);
@@ -83,6 +84,7 @@
             // btnCancelar
             // 
             btnCancelar.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            btnCancelar.DialogResult = DialogResult.Cancel;
             btnCancelar.Location = new Point(307, 139);
             btnCancelar.Name = "btnCancelar";
             btnCancelar.Size = new Size(89, 45);

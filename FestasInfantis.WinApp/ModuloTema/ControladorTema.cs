@@ -17,6 +17,18 @@
 
         public override void Inserir()
         {
+            TelaTemaForm telaTema = new();
+
+            DialogResult dialogResult = telaTema.ShowDialog();
+
+            if (dialogResult == DialogResult.OK)
+            {
+                Tema tema = telaTema.ObterTema();
+
+                _repositorioTema.Inserir(tema);
+
+                CarregarTemas();
+            }
         }
 
         public override void Editar()
