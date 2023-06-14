@@ -36,7 +36,7 @@
             temaMenuItem = new ToolStripMenuItem();
             statusStrip1 = new StatusStrip();
             lblRodape = new ToolStripStatusLabel();
-            toolStrip1 = new ToolStrip();
+            toolbar = new ToolStrip();
             btnInserir = new ToolStripButton();
             btnEditar = new ToolStripButton();
             btnExcluir = new ToolStripButton();
@@ -44,7 +44,7 @@
             lblTipoCadastro = new ToolStripLabel();
             menuStrip1.SuspendLayout();
             statusStrip1.SuspendLayout();
-            toolStrip1.SuspendLayout();
+            toolbar.SuspendLayout();
             SuspendLayout();
             // 
             // menuStrip1
@@ -66,28 +66,28 @@
             // clienteMenuItem
             // 
             clienteMenuItem.Name = "clienteMenuItem";
-            clienteMenuItem.Size = new Size(180, 22);
+            clienteMenuItem.Size = new Size(115, 22);
             clienteMenuItem.Text = "Cliente";
             clienteMenuItem.Click += clienteMenuItem_Click;
             // 
             // festaMenuItem
             // 
             festaMenuItem.Name = "festaMenuItem";
-            festaMenuItem.Size = new Size(180, 22);
+            festaMenuItem.Size = new Size(115, 22);
             festaMenuItem.Text = "Festa";
             festaMenuItem.Click += festaMenuItem_Click;
             // 
             // aluguelMenuItem
             // 
             aluguelMenuItem.Name = "aluguelMenuItem";
-            aluguelMenuItem.Size = new Size(180, 22);
+            aluguelMenuItem.Size = new Size(115, 22);
             aluguelMenuItem.Text = "Aluguel";
             aluguelMenuItem.Click += aluguelMenuItem_Click;
             // 
             // temaMenuItem
             // 
             temaMenuItem.Name = "temaMenuItem";
-            temaMenuItem.Size = new Size(180, 22);
+            temaMenuItem.Size = new Size(115, 22);
             temaMenuItem.Text = "Tema";
             temaMenuItem.Click += temaMenuItem_Click;
             // 
@@ -106,14 +106,15 @@
             lblRodape.Size = new Size(60, 17);
             lblRodape.Text = "lblRodape";
             // 
-            // toolStrip1
+            // toolbar
             // 
-            toolStrip1.Items.AddRange(new ToolStripItem[] { btnInserir, btnEditar, btnExcluir, toolStripSeparator1, lblTipoCadastro });
-            toolStrip1.Location = new Point(0, 24);
-            toolStrip1.Name = "toolStrip1";
-            toolStrip1.Size = new Size(800, 45);
-            toolStrip1.TabIndex = 2;
-            toolStrip1.Text = "toolStrip1";
+            toolbar.Enabled = false;
+            toolbar.Items.AddRange(new ToolStripItem[] { btnInserir, btnEditar, btnExcluir, toolStripSeparator1, lblTipoCadastro });
+            toolbar.Location = new Point(0, 24);
+            toolbar.Name = "toolbar";
+            toolbar.Size = new Size(800, 45);
+            toolbar.TabIndex = 2;
+            toolbar.Text = "toolStrip1";
             // 
             // btnInserir
             // 
@@ -164,7 +165,7 @@
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
-            Controls.Add(toolStrip1);
+            Controls.Add(toolbar);
             Controls.Add(statusStrip1);
             Controls.Add(menuStrip1);
             MainMenuStrip = menuStrip1;
@@ -177,8 +178,8 @@
             menuStrip1.PerformLayout();
             statusStrip1.ResumeLayout(false);
             statusStrip1.PerformLayout();
-            toolStrip1.ResumeLayout(false);
-            toolStrip1.PerformLayout();
+            toolbar.ResumeLayout(false);
+            toolbar.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -193,7 +194,7 @@
         private ToolStripMenuItem temaMenuItem;
         private StatusStrip statusStrip1;
         private ToolStripStatusLabel lblRodape;
-        private ToolStrip toolStrip1;
+        private ToolStrip toolbar;
         private ToolStripButton btnInserir;
         private ToolStripButton btnEditar;
         private ToolStripButton btnExcluir;

@@ -1,3 +1,4 @@
+using FestasInfantis.WinApp.Compartilhado;
 using FestasInfantis.WinApp.ModuloTema;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
@@ -31,12 +32,12 @@ namespace FestasInfantis.WinApp
 
         private void clienteMenuItem_Click(object sender, EventArgs e)
         {
-            
+
         }
 
         private void festaMenuItem_Click(object sender, EventArgs e)
         {
-            
+
         }
 
         private void aluguelMenuItem_Click(object sender, EventArgs e)
@@ -47,6 +48,36 @@ namespace FestasInfantis.WinApp
         private void temaMenuItem_Click(object sender, EventArgs e)
         {
             _controlador = new ControladorTema(_repositorioTema);
+
+            ConfigurarTelaPrincipal(_controlador);
+        }
+
+        public void AtualizarRodape(string texto)
+        {
+            lblRodape.Text = texto;
+        }
+
+        private void ConfigurarTelaPrincipal(ControladorBase controladorBase)
+        {
+            lblTipoCadastro.Text = controladorBase.ObterTipoCadastro();
+
+            ConfigurarToolbar(controladorBase);
+        }
+
+        private void ConfigurarToolbar(ControladorBase controladorBase)
+        {
+            toolbar.Enabled = true;
+
+            //ConfigurarToolTips(controladorBase);
+
+            //SetButtonStatus(controladorBase);
+        }
+
+        private void ConfigurarToolTips(ControladorBase controladorBase)
+        {
+            btnInserir.ToolTipText = controladorBase.ToolTipInserir;
+            btnEditar.ToolTipText = controladorBase.ToolTipEditar;
+            btnExcluir.ToolTipText = controladorBase.ToolTipExcluir;
         }
     }
 }
