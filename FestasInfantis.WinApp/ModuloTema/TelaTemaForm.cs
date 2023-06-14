@@ -32,7 +32,7 @@
         {
             txtId.Text = temaSelecionado.Id.ToString();
             txtTema.Text = temaSelecionado.Nome;
-            mtbValor.Text = temaSelecionado.ValorTotal.ToString();
+            txtValor.Text = temaSelecionado.ValorTotal.ToString();
         }
 
         private void txtValor_KeyPress_1(object sender, KeyPressEventArgs e)

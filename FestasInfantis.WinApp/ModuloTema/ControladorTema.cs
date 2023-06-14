@@ -26,9 +26,9 @@
                 Tema tema = telaTema.ObterTema();
 
                 _repositorioTema.Inserir(tema);
-
-                CarregarTemas();
             }
+
+            CarregarTemas();
         }
 
         public override void Editar()
@@ -55,14 +55,32 @@
                 Tema tema = telaTema.ObterTema();
 
                 _repositorioTema.Editar(tema.Id, tema);
-
-                CarregarTemas();
             }
+
+            CarregarTemas();
         }
 
         public override void Excluir()
         {
-            throw new NotImplementedException();
+            Tema temaSelecionado = ObterTemaSelecionado();
+
+            if (temaSelecionado == null)
+            {
+                MessageBox.Show($"Selecione um tema primeiro!",
+                    "Exclusão de Temas",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Exclamation);
+
+                return;
+            }
+
+            DialogResult dialogResult = MessageBox.Show($"Deseja excluir o tema {temaSelecionado.Nome}?",
+                    "Exclusão de Temas", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+
+            if (dialogResult == DialogResult.OK)
+                _repositorioTema.Excluir(temaSelecionado);
+
+            CarregarTemas();
         }
 
         public override void AdicionarItem()

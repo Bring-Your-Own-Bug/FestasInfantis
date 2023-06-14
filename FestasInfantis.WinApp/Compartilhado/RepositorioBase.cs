@@ -18,7 +18,7 @@
         {
             T registroSelecionado = SelecionarPorId(id);
 
-            registroAtualizado.AtualizarInformacoes(registroAtualizado);
+            registroSelecionado.AtualizarInformacoes(registroAtualizado);
         }
 
         public virtual void Editar(T registroSelecionado, T registroAtualizado)

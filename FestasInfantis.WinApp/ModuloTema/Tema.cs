@@ -24,6 +24,7 @@
         {
             Id = registroAtualizado.Id;
             Nome = registroAtualizado.Nome;
+            ValorTotal = registroAtualizado.ValorTotal;
         }
 
         public override List<string> Validar()
