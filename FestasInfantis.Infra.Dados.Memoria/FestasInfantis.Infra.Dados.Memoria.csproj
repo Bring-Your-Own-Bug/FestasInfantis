@@ -7,10 +7,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="ModuloTema\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\FestasInfantis.Dominio\FestasInfantis.Dominio.csproj" />
   </ItemGroup>
 
