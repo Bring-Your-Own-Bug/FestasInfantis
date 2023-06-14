@@ -33,7 +33,31 @@
 
         public override void Editar()
         {
-            throw new NotImplementedException();
+            Tema temaSelecionado = ObterTemaSelecionado();
+
+            if (temaSelecionado == null)
+            {
+                MessageBox.Show($"Selecione um tema primeiro!",
+                    "Edição de Temas",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Exclamation);
+
+                return;
+            }
+
+            TelaTemaForm telaTema = new();
+            telaTema.ConfigurarForm(temaSelecionado);
+
+            DialogResult dialogResult = telaTema.ShowDialog();
+
+            if (dialogResult == DialogResult.OK)
+            {
+                Tema tema = telaTema.ObterTema();
+
+                _repositorioTema.Editar(tema.Id, tema);
+
+                CarregarTemas();
+            }
         }
 
         public override void Excluir()
@@ -54,6 +78,11 @@
         public override string ObterTipoCadastro()
         {
             return "Cadastro de Tema";
+        }
+
+        private Tema ObterTemaSelecionado()
+        {
+            return _repositorioTema.SelecionarPorId(_tabelaTema.ObterIdSelecionado());
         }
 
         public override UserControl ObterUserControl()

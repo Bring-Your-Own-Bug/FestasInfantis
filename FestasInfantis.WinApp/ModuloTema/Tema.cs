@@ -13,11 +13,11 @@
             
         }
 
-        public Tema(string nome)
+        public Tema(string nome, decimal valor)
         {
             Nome = nome;
             Itens = new List<ItemTema>();
-            ValorTotal = 0;
+            ValorTotal = valor;
         }
 
         public override void AtualizarInformacoes(Tema registroAtualizado)
