@@ -1,4 +1,4 @@
-﻿namespace FestasInfantis.WinApp.Compartilhado
+﻿namespace FestasInfantis.Dominio.Compartilhado
 {
     public abstract class EntidadeBase<T>
     {

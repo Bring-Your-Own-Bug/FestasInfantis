@@ -1,8 +1,10 @@
-﻿namespace FestasInfantis.WinApp.ModuloTema
+﻿using FestasInfantis.Dominio.ModuloTema;
+
+namespace FestasInfantis.WinApp.ModuloTema
 {
     public class ControladorTema : ControladorBase
     {
-        private IRepositorioTema _repositorioTema;
+        private readonly IRepositorioTema _repositorioTema;
         private TabelaTemaControl _tabelaTema;
         public ControladorTema(IRepositorioTema repositorioTema)
         {

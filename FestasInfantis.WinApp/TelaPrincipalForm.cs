@@ -1,3 +1,6 @@
+using FestasInfantis.Dominio.ModuloTema;
+using FestasInfantis.Infra.Dados.Arquivo.Compartilhado;
+using FestasInfantis.Infra.Dados.Arquivo.ModuloTema;
 using FestasInfantis.WinApp.ModuloTema;
 
 namespace FestasInfantis.WinApp
@@ -6,7 +9,9 @@ namespace FestasInfantis.WinApp
     {
         private ControladorBase _controlador;
 
-        private readonly IRepositorioTema _repositorioTema = new RepositorioTema(new List<Tema>());
+        private static ContextoDados _contextoDados = new(carregarDados: true);
+
+        private readonly IRepositorioTema _repositorioTema = new RepositorioTemaEmArquivo(_contextoDados);
 
         private static TelaPrincipalForm _telaPrincipal;
         public TelaPrincipalForm()

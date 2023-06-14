@@ -1,4 +1,6 @@
-﻿namespace FestasInfantis.WinApp.ModuloTema
+﻿using FestasInfantis.Dominio.ModuloTema;
+
+namespace FestasInfantis.WinApp.ModuloTema
 {
     public partial class TabelaTemaControl : UserControl
     {

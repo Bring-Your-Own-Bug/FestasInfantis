@@ -1,6 +1,6 @@
-﻿namespace FestasInfantis.WinApp.Compartilhado
+﻿namespace FestasInfantis.Infra.Dados.Memoria.Compartilhado
 {
-    public class RepositorioBase<T> where T : EntidadeBase<T>
+    public class RepositorioBaseEmMemoria<T> where T : EntidadeBase<T>
     {
         protected List<T> listaRegistros;
         protected int contadorRegistros = 0;
