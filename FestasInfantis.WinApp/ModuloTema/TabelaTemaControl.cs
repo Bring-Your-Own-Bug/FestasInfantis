@@ -51,5 +51,21 @@
                 }
             }
         }
+
+        public int ObterIdSelecionado()
+        {
+            int id;
+
+            try
+            {
+                id = Convert.ToInt32(grid.SelectedRows[0].Cells["id"].Value);
+            }
+            catch
+            {
+                id = -1;
+            }
+
+            return id;
+        }
     }
 }

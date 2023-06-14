@@ -17,7 +17,6 @@
 
         public override void Inserir()
         {
-            throw new NotImplementedException();
         }
 
         public override void Editar()
