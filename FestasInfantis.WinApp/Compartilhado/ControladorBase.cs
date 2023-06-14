@@ -24,7 +24,7 @@
         {
         }
 
-        public abstract UserControl ObterGrid();
+        public abstract UserControl ObterUserControl();
 
         public abstract string ObterTipoCadastro();
     }
