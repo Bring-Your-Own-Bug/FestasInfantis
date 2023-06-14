@@ -15,6 +15,9 @@
 
             string nome = txtTema.Text;
 
+            if (string.IsNullOrWhiteSpace(txtValor.Text))
+                txtValor.Text = "0";
+
             decimal valor = Math.Round(Convert.ToDecimal(txtValor.Text), 2);
 
             Tema tema = new(nome, valor);
@@ -41,6 +44,20 @@
             else if (e.KeyChar == ',' && ((TextBox)sender).Text.Contains(','))
             {
                 e.Handled = true;
+            }
+        }
+
+        private void btnGravar_Click(object sender, EventArgs e)
+        {
+            Tema tema = ObterTema();
+
+            List<string> erros = tema.Validar();
+
+            if (erros.Count > 0)
+            {
+                TelaPrincipalForm.Instancia.AtualizarRodape(erros[0]);
+
+                DialogResult = DialogResult.None;
             }
         }
     }

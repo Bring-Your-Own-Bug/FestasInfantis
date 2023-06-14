@@ -32,6 +32,8 @@
 
             if (string.IsNullOrWhiteSpace(Nome))
                 erros.Add("O campo 'nome' é obrigatório");
+            if (ValorTotal < 0)
+                erros.Add("O campo 'Valor' não pode ser negativo");
 
             return erros;
         }
