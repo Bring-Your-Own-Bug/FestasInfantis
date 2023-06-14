@@ -17,6 +17,7 @@
         {
             Nome = nome;
             Itens = new List<ItemTema>();
+            ValorTotal = 0;
         }
 
         public override void AtualizarInformacoes(Tema registroAtualizado)

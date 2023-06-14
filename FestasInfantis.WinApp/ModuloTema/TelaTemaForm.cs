@@ -12,11 +12,11 @@ namespace FestasInfantis.WinApp.ModuloTema
             this.ConfigurarDialog();
         }
 
-        public Tema ObterTema()
-        {
-            int id = Convert.ToInt32(txtId.Text);
+        //public Tema ObterTema()
+        //{
+        //    int id = Convert.ToInt32(txtId.Text);
 
-            string nome = txtTema.Text;
-        }
+        //    string nome = txtTema.Text;
+        //}
     }
 }
