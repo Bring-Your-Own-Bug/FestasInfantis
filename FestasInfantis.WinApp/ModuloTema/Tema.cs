@@ -1,12 +1,12 @@
-﻿using System.Xml.Linq;
-
-namespace FestasInfantis.WinApp.ModuloTema
+﻿namespace FestasInfantis.WinApp.ModuloTema
 {
     public class Tema : EntidadeBase<Tema>
     {
         public string Nome { get; set; }
 
         public List<ItemTema> Itens { get; set; }
+
+        public decimal ValorTotal { get; set; }
 
         public Tema()
         {

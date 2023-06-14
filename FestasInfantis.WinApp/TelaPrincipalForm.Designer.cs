@@ -44,6 +44,7 @@
             btnAdicionarItem = new ToolStripButton();
             btnDefinirValor = new ToolStripButton();
             lblTipoCadastro = new ToolStripLabel();
+            panel1 = new Panel();
             menuStrip1.SuspendLayout();
             statusStrip1.SuspendLayout();
             toolbar.SuspendLayout();
@@ -187,11 +188,20 @@
             lblTipoCadastro.Size = new Size(90, 42);
             lblTipoCadastro.Text = "lblTipoCadastro";
             // 
+            // panel1
+            // 
+            panel1.Dock = DockStyle.Fill;
+            panel1.Location = new Point(0, 69);
+            panel1.Name = "panel1";
+            panel1.Size = new Size(800, 359);
+            panel1.TabIndex = 3;
+            // 
             // TelaPrincipalForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(panel1);
             Controls.Add(toolbar);
             Controls.Add(statusStrip1);
             Controls.Add(menuStrip1);
@@ -229,5 +239,6 @@
         private ToolStripLabel lblTipoCadastro;
         private ToolStripButton btnAdicionarItem;
         private ToolStripButton btnDefinirValor;
+        private Panel panel1;
     }
 }

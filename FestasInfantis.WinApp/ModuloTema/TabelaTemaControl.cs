@@ -36,5 +36,18 @@
 
             grid.Columns.AddRange(colunas);
         }
+
+        public void AtualizarRegistros(List<Tema> temas)
+        {
+            grid.Rows.Clear();
+
+            foreach (Tema tema in temas)
+            {
+                if (tema != null)
+                {
+                    grid.Rows.Add(tema.Id, tema.Nome, tema.ValorTotal);
+                }
+            }
+        }
     }
 }
