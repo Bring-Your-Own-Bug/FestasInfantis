@@ -1,6 +1,4 @@
-using FestasInfantis.WinApp.Compartilhado;
 using FestasInfantis.WinApp.ModuloTema;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace FestasInfantis.WinApp
 {
