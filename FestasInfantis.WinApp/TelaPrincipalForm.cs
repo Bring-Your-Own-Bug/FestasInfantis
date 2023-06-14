@@ -68,9 +68,9 @@ namespace FestasInfantis.WinApp
         {
             toolbar.Enabled = true;
 
-            //ConfigurarToolTips(controladorBase);
+            ConfigurarToolTips(controladorBase);
 
-            //SetButtonStatus(controladorBase);
+            ConfigurarStatusBotoes(controladorBase);
         }
 
         private void ConfigurarToolTips(ControladorBase controladorBase)
@@ -78,6 +78,13 @@ namespace FestasInfantis.WinApp
             btnInserir.ToolTipText = controladorBase.ToolTipInserir;
             btnEditar.ToolTipText = controladorBase.ToolTipEditar;
             btnExcluir.ToolTipText = controladorBase.ToolTipExcluir;
+        }
+
+        private void ConfigurarStatusBotoes(ControladorBase controladorBase)
+        {
+            btnInserir.Enabled = controladorBase.EhInserirHabilitado;
+            btnEditar.Enabled = controladorBase.EhEditarHabilitado;
+            btnExcluir.Enabled = controladorBase.EhExcluirHabilitado;
         }
     }
 }
