@@ -16,6 +16,11 @@
             Valor = valor;
         }
 
+        public override string ToString()
+        {
+            return $"Item: {Nome} | Valor: R$ {Valor}";
+        }
+
         public override bool Equals(object? obj)
         {
             return obj is ItemTema tema &&

@@ -87,7 +87,35 @@ namespace FestasInfantis.WinApp.ModuloTema
 
         public override void AdicionarItem()
         {
-            base.AdicionarItem();
+            Tema temaSelecionado = ObterTemaSelecionado();
+
+            if (temaSelecionado == null)
+            {
+                MessageBox.Show($"Selecione um tema primeiro!",
+                    "Itens do Tema",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Exclamation);
+
+                return;
+            }
+
+            TelaItemTemaForm telaItemTema = new(temaSelecionado);
+
+            DialogResult dialogResult = telaItemTema.ShowDialog();
+
+            if (dialogResult == DialogResult.OK)
+            {
+                List<ItemTema> itensParaAdd = telaItemTema.ObterItemRegistrado();
+
+                foreach (ItemTema item in itensParaAdd)
+                {
+                    temaSelecionado.AdicionarItem(item);
+                }
+
+                _repositorioTema.Editar(temaSelecionado.Id, temaSelecionado);
+
+                CarregarTemas();
+            }
         }
 
         public override void DefinirValor()

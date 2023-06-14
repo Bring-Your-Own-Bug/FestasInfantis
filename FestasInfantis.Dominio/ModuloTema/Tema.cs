@@ -38,5 +38,10 @@
 
             return erros;
         }
+
+        public void AdicionarItem(ItemTema item)
+        {
+            Itens.Add(item);
+        }
     }
 }

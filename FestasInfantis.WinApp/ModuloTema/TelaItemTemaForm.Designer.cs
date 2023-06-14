@@ -31,14 +31,16 @@
             txtId = new TextBox();
             label1 = new Label();
             label2 = new Label();
-            textBox1 = new TextBox();
-            button1 = new Button();
-            listBox1 = new ListBox();
+            txtItem = new TextBox();
+            btnAdicionar = new Button();
+            listaItens = new ListBox();
             btnCancelar = new Button();
             btnGravar = new Button();
             btnDeletar = new Button();
-            textBox2 = new TextBox();
+            txtTema = new TextBox();
             label3 = new Label();
+            label4 = new Label();
+            txtValor = new TextBox();
             SuspendLayout();
             // 
             // txtId
@@ -63,36 +65,38 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(17, 76);
+            label2.Location = new Point(17, 72);
             label2.Name = "label2";
             label2.Size = new Size(35, 15);
             label2.TabIndex = 23;
             label2.Text = "Tema";
             // 
-            // textBox1
+            // txtItem
             // 
-            textBox1.Location = new Point(54, 117);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(332, 23);
-            textBox1.TabIndex = 24;
+            txtItem.Location = new Point(54, 109);
+            txtItem.Name = "txtItem";
+            txtItem.Size = new Size(332, 23);
+            txtItem.TabIndex = 1;
             // 
-            // button1
+            // btnAdicionar
             // 
-            button1.Location = new Point(392, 117);
-            button1.Name = "button1";
-            button1.Size = new Size(108, 25);
-            button1.TabIndex = 25;
-            button1.Text = "Adicionar Item";
-            button1.UseVisualStyleBackColor = true;
+            btnAdicionar.Location = new Point(392, 109);
+            btnAdicionar.Name = "btnAdicionar";
+            btnAdicionar.Size = new Size(108, 63);
+            btnAdicionar.TabIndex = 3;
+            btnAdicionar.Text = "Adicionar Item";
+            btnAdicionar.UseVisualStyleBackColor = true;
+            btnAdicionar.Click += btnAdicionar_Click;
             // 
-            // listBox1
+            // listaItens
             // 
-            listBox1.FormattingEnabled = true;
-            listBox1.ItemHeight = 15;
-            listBox1.Location = new Point(12, 170);
-            listBox1.Name = "listBox1";
-            listBox1.Size = new Size(482, 214);
-            listBox1.TabIndex = 26;
+            listaItens.FormattingEnabled = true;
+            listaItens.ItemHeight = 15;
+            listaItens.Location = new Point(12, 200);
+            listaItens.Name = "listaItens";
+            listaItens.Size = new Size(482, 184);
+            listaItens.TabIndex = 26;
+            listaItens.TabStop = false;
             // 
             // btnCancelar
             // 
@@ -101,7 +105,7 @@
             btnCancelar.Location = new Point(405, 432);
             btnCancelar.Name = "btnCancelar";
             btnCancelar.Size = new Size(89, 45);
-            btnCancelar.TabIndex = 28;
+            btnCancelar.TabIndex = 6;
             btnCancelar.Text = "Cancelar";
             btnCancelar.UseVisualStyleBackColor = true;
             // 
@@ -112,51 +116,71 @@
             btnGravar.Location = new Point(310, 432);
             btnGravar.Name = "btnGravar";
             btnGravar.Size = new Size(89, 45);
-            btnGravar.TabIndex = 27;
+            btnGravar.TabIndex = 5;
             btnGravar.Text = "Gravar";
             btnGravar.UseVisualStyleBackColor = true;
             // 
             // btnDeletar
             // 
             btnDeletar.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
-            btnDeletar.DialogResult = DialogResult.OK;
             btnDeletar.Location = new Point(12, 432);
             btnDeletar.Name = "btnDeletar";
             btnDeletar.Size = new Size(89, 45);
-            btnDeletar.TabIndex = 29;
+            btnDeletar.TabIndex = 4;
             btnDeletar.Text = "Deletar";
             btnDeletar.UseVisualStyleBackColor = true;
+            btnDeletar.Click += btnDeletar_Click;
             // 
-            // textBox2
+            // txtTema
             // 
-            textBox2.Location = new Point(54, 73);
-            textBox2.Name = "textBox2";
-            textBox2.ReadOnly = true;
-            textBox2.Size = new Size(332, 23);
-            textBox2.TabIndex = 30;
+            txtTema.Location = new Point(54, 69);
+            txtTema.Name = "txtTema";
+            txtTema.ReadOnly = true;
+            txtTema.Size = new Size(332, 23);
+            txtTema.TabIndex = 30;
+            txtTema.TabStop = false;
             // 
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(17, 120);
+            label3.Location = new Point(17, 112);
             label3.Name = "label3";
             label3.Size = new Size(31, 15);
             label3.TabIndex = 31;
             label3.Text = "Item";
+            // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Location = new Point(17, 152);
+            label4.Name = "label4";
+            label4.Size = new Size(33, 15);
+            label4.TabIndex = 32;
+            label4.Text = "Valor";
+            // 
+            // txtValor
+            // 
+            txtValor.Location = new Point(54, 149);
+            txtValor.Name = "txtValor";
+            txtValor.Size = new Size(332, 23);
+            txtValor.TabIndex = 2;
+            txtValor.KeyPress += txtValor_KeyPress;
             // 
             // TelaItemTemaForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(506, 489);
+            Controls.Add(txtValor);
+            Controls.Add(label4);
             Controls.Add(label3);
-            Controls.Add(textBox2);
+            Controls.Add(txtTema);
             Controls.Add(btnDeletar);
             Controls.Add(btnCancelar);
             Controls.Add(btnGravar);
-            Controls.Add(listBox1);
-            Controls.Add(button1);
-            Controls.Add(textBox1);
+            Controls.Add(listaItens);
+            Controls.Add(btnAdicionar);
+            Controls.Add(txtItem);
             Controls.Add(label2);
             Controls.Add(txtId);
             Controls.Add(label1);
@@ -171,13 +195,15 @@
         private TextBox txtId;
         private Label label1;
         private Label label2;
-        private TextBox textBox1;
-        private Button button1;
-        private ListBox listBox1;
+        private TextBox txtItem;
+        private Button btnAdicionar;
+        private ListBox listaItens;
         private Button btnCancelar;
         private Button btnGravar;
         private Button btnDeletar;
-        private TextBox textBox2;
+        private TextBox txtTema;
         private Label label3;
+        private Label label4;
+        private TextBox txtValor;
     }
 }

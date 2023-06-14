@@ -39,14 +39,7 @@ namespace FestasInfantis.WinApp.ModuloTema
 
         private void txtValor_KeyPress_1(object sender, KeyPressEventArgs e)
         {
-            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && e.KeyChar != ',')
-            {
-                e.Handled = true;
-            }
-            else if (e.KeyChar == ',' && ((TextBox)sender).Text.Contains(','))
-            {
-                e.Handled = true;
-            }
+            Utils.FormatarTxtNumerica(sender, e);
         }
 
         private void btnGravar_Click(object sender, EventArgs e)
