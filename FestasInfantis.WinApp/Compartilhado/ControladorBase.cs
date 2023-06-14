@@ -16,6 +16,8 @@
 
         public abstract void Excluir();
 
+        public abstract UserControl ObterGrid();
+
         public abstract string ObterTipoCadastro();
     }
 }
