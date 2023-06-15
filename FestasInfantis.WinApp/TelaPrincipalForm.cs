@@ -100,6 +100,8 @@ namespace FestasInfantis.WinApp
             btnInserir.ToolTipText = controladorBase.ToolTipInserir;
             btnEditar.ToolTipText = controladorBase.ToolTipEditar;
             btnExcluir.ToolTipText = controladorBase.ToolTipExcluir;
+            btnAdicionarItem.ToolTipText = controladorBase.ToolTipAdicionarItem;
+            btnMarcarItem.ToolTipText = controladorBase.ToolTipMarcarItem;
         }
 
         private void ConfigurarStatusBotoes(ControladorBase controladorBase)
@@ -107,6 +109,8 @@ namespace FestasInfantis.WinApp
             btnInserir.Enabled = controladorBase.EhInserirHabilitado;
             btnEditar.Enabled = controladorBase.EhEditarHabilitado;
             btnExcluir.Enabled = controladorBase.EhExcluirHabilitado;
+            btnAdicionarItem.Enabled = controladorBase.EhAdicionarItemHabilitado;
+            btnMarcarItem.Enabled = controladorBase.EhMarcarItemHabilitado;
         }
 
         private void btnInserir_Click(object sender, EventArgs e)

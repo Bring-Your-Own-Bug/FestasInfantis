@@ -18,8 +18,8 @@ namespace FestasInfantis.WinApp.ModuloTema
         public override string ToolTipAdicionarItem => "Adicionar Itens no Tema";
         public override string ToolTipMarcarItem => "Marcar/Desmarcar Itens no Tema";
 
-        public override bool EhAdicionarItem => true;
-        public override bool EhMarcarItem => true;
+        public override bool EhAdicionarItemHabilitado => true;
+        public override bool EhMarcarItemHabilitado => true;
 
         public override void Inserir()
         {

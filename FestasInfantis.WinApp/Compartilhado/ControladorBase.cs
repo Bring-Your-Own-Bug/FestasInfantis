@@ -12,8 +12,8 @@
         public virtual bool EhEditarHabilitado => true;
         public virtual bool EhExcluirHabilitado => true;
 
-        public virtual bool EhAdicionarItem => false;
-        public virtual bool EhMarcarItem => false;
+        public virtual bool EhAdicionarItemHabilitado => false;
+        public virtual bool EhMarcarItemHabilitado => false;
 
         public abstract void Inserir();
 
