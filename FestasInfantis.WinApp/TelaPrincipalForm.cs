@@ -1,6 +1,9 @@
+using FestasInfantis.Dominio.ModuloFesta;
 using FestasInfantis.Dominio.ModuloTema;
 using FestasInfantis.Infra.Dados.Arquivo.Compartilhado;
+using FestasInfantis.Infra.Dados.Arquivo.ModuloFesta;
 using FestasInfantis.Infra.Dados.Arquivo.ModuloTema;
+using FestasInfantis.WinApp.ModuloFesta;
 using FestasInfantis.WinApp.ModuloTema;
 
 namespace FestasInfantis.WinApp
@@ -12,6 +15,7 @@ namespace FestasInfantis.WinApp
         private static ContextoDados _contextoDados = new(carregarDados: true);
 
         private readonly IRepositorioTema _repositorioTema = new RepositorioTemaEmArquivo(_contextoDados);
+        private readonly IRepositorioFesta _repositorioFesta = new RepositorioFestaEmArquivo(_contextoDados);
 
         private static TelaPrincipalForm _telaPrincipal;
         public TelaPrincipalForm()
@@ -40,7 +44,9 @@ namespace FestasInfantis.WinApp
 
         private void festaMenuItem_Click(object sender, EventArgs e)
         {
+            _controlador = new ControladorFesta(_repositorioFesta);
 
+            ConfigurarTelaPrincipal(_controlador);
         }
 
         private void aluguelMenuItem_Click(object sender, EventArgs e)
