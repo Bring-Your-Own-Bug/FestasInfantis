@@ -159,11 +159,6 @@ namespace FestasInfantis.WinApp.ModuloTema
             return "Cadastro de Tema";
         }
 
-        private Tema ObterTemaSelecionado()
-        {
-            return _repositorioTema.SelecionarPorId(_tabelaTema.ObterIdSelecionado());
-        }
-
         public override UserControl ObterUserControl()
         {
             _tabelaTema ??= new TabelaTemaControl();
@@ -176,6 +171,11 @@ namespace FestasInfantis.WinApp.ModuloTema
             List<Tema> temas = _repositorioTema.SelecionarTodos();
             _tabelaTema.AtualizarRegistros(temas);
             TelaPrincipalForm.Instancia.AtualizarRodape($"Visualizando {temas.Count} tema(s)");
+        }
+
+        private Tema ObterTemaSelecionado()
+        {
+            return _repositorioTema.SelecionarPorId(_tabelaTema.ObterIdSelecionado());
         }
     }
 }

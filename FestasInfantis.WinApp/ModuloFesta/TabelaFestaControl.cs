@@ -1,12 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
+﻿using FestasInfantis.Dominio.ModuloFesta;
 
 namespace FestasInfantis.WinApp.ModuloFesta
 {
@@ -15,6 +7,77 @@ namespace FestasInfantis.WinApp.ModuloFesta
         public TabelaFestaControl()
         {
             InitializeComponent();
+
+            ConfigurarColunas();
+
+            grid.ConfigurarGridZebrado();
+
+            grid.ConfigurarGridSomenteLeitura();
+
+            grid.Columns["id"].Width = 25;
+        }
+
+        private void ConfigurarColunas()
+        {
+            DataGridViewTextBoxColumn[] colunas = new DataGridViewTextBoxColumn[]
+            {
+                new()
+                {
+                    Name = "id",
+                    HeaderText = "ID"
+                },
+                new()
+                {
+                    Name = "tema",
+                    HeaderText = "Tema"
+                },
+                new()
+                {
+                    Name = "data",
+                    HeaderText = "Data"
+                },
+                new()
+                {
+                    Name = "horaInicio",
+                    HeaderText = "Horario Inicio"
+                },
+                new()
+                {
+                    Name = "horaFinal",
+                    HeaderText = "Horario Final"
+                }
+            };
+
+            grid.Columns.AddRange(colunas);
+        }
+
+        public void AtualizarRegistros(List<Festa> festas)
+        {
+            grid.Rows.Clear();
+
+            foreach (Festa festa in festas)
+            {
+                if (festa != null)
+                {
+                    grid.Rows.Add(festa.Id, festa.Tema.Nome, festa.Data, festa.HorarioInicio, festa.HorarioFinal);
+                }
+            }
+        }
+
+        public int ObterIdSelecionado()
+        {
+            int id;
+
+            try
+            {
+                id = Convert.ToInt32(grid.SelectedRows[0].Cells["id"].Value);
+            }
+            catch
+            {
+                id = -1;
+            }
+
+            return id;
         }
     }
 }

@@ -32,22 +32,22 @@
             label1 = new Label();
             btnCancelar = new Button();
             btnGravar = new Button();
-            comboBox1 = new ComboBox();
+            cmbTema = new ComboBox();
             label2 = new Label();
             dtpInicio = new DateTimePicker();
             label3 = new Label();
             label4 = new Label();
             dtpFinal = new DateTimePicker();
             groupBox1 = new GroupBox();
-            textBox5 = new TextBox();
+            txtEstado = new TextBox();
             label9 = new Label();
-            textBox4 = new TextBox();
+            txtCidade = new TextBox();
             label8 = new Label();
-            textBox3 = new TextBox();
+            txtNumero = new TextBox();
             label7 = new Label();
-            textBox2 = new TextBox();
+            txtBairro = new TextBox();
             label6 = new Label();
-            textBox1 = new TextBox();
+            txtRua = new TextBox();
             label5 = new Label();
             groupBox1.SuspendLayout();
             SuspendLayout();
@@ -93,13 +93,13 @@
             btnGravar.Text = "Gravar";
             btnGravar.UseVisualStyleBackColor = true;
             // 
-            // comboBox1
+            // cmbTema
             // 
-            comboBox1.FormattingEnabled = true;
-            comboBox1.Location = new Point(46, 104);
-            comboBox1.Name = "comboBox1";
-            comboBox1.Size = new Size(325, 23);
-            comboBox1.TabIndex = 25;
+            cmbTema.FormattingEnabled = true;
+            cmbTema.Location = new Point(46, 104);
+            cmbTema.Name = "cmbTema";
+            cmbTema.Size = new Size(325, 23);
+            cmbTema.TabIndex = 25;
             // 
             // label2
             // 
@@ -150,15 +150,15 @@
             // 
             // groupBox1
             // 
-            groupBox1.Controls.Add(textBox5);
+            groupBox1.Controls.Add(txtEstado);
             groupBox1.Controls.Add(label9);
-            groupBox1.Controls.Add(textBox4);
+            groupBox1.Controls.Add(txtCidade);
             groupBox1.Controls.Add(label8);
-            groupBox1.Controls.Add(textBox3);
+            groupBox1.Controls.Add(txtNumero);
             groupBox1.Controls.Add(label7);
-            groupBox1.Controls.Add(textBox2);
+            groupBox1.Controls.Add(txtBairro);
             groupBox1.Controls.Add(label6);
-            groupBox1.Controls.Add(textBox1);
+            groupBox1.Controls.Add(txtRua);
             groupBox1.Controls.Add(label5);
             groupBox1.Location = new Point(22, 225);
             groupBox1.Name = "groupBox1";
@@ -167,12 +167,12 @@
             groupBox1.TabStop = false;
             groupBox1.Text = "Endereço";
             // 
-            // textBox5
+            // txtEstado
             // 
-            textBox5.Location = new Point(57, 120);
-            textBox5.Name = "textBox5";
-            textBox5.Size = new Size(292, 23);
-            textBox5.TabIndex = 9;
+            txtEstado.Location = new Point(57, 120);
+            txtEstado.Name = "txtEstado";
+            txtEstado.Size = new Size(292, 23);
+            txtEstado.TabIndex = 9;
             // 
             // label9
             // 
@@ -183,12 +183,12 @@
             label9.TabIndex = 8;
             label9.Text = "Estado";
             // 
-            // textBox4
+            // txtCidade
             // 
-            textBox4.Location = new Point(57, 91);
-            textBox4.Name = "textBox4";
-            textBox4.Size = new Size(292, 23);
-            textBox4.TabIndex = 7;
+            txtCidade.Location = new Point(57, 91);
+            txtCidade.Name = "txtCidade";
+            txtCidade.Size = new Size(292, 23);
+            txtCidade.TabIndex = 7;
             // 
             // label8
             // 
@@ -199,12 +199,12 @@
             label8.TabIndex = 6;
             label8.Text = "Cidade";
             // 
-            // textBox3
+            // txtNumero
             // 
-            textBox3.Location = new Point(275, 29);
-            textBox3.Name = "textBox3";
-            textBox3.Size = new Size(74, 23);
-            textBox3.TabIndex = 5;
+            txtNumero.Location = new Point(275, 29);
+            txtNumero.Name = "txtNumero";
+            txtNumero.Size = new Size(74, 23);
+            txtNumero.TabIndex = 5;
             // 
             // label7
             // 
@@ -215,12 +215,12 @@
             label7.TabIndex = 4;
             label7.Text = "N°";
             // 
-            // textBox2
+            // txtBairro
             // 
-            textBox2.Location = new Point(57, 61);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(292, 23);
-            textBox2.TabIndex = 3;
+            txtBairro.Location = new Point(57, 61);
+            txtBairro.Name = "txtBairro";
+            txtBairro.Size = new Size(292, 23);
+            txtBairro.TabIndex = 3;
             // 
             // label6
             // 
@@ -231,12 +231,12 @@
             label6.TabIndex = 2;
             label6.Text = "Bairro";
             // 
-            // textBox1
+            // txtRua
             // 
-            textBox1.Location = new Point(57, 29);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(185, 23);
-            textBox1.TabIndex = 1;
+            txtRua.Location = new Point(57, 29);
+            txtRua.Name = "txtRua";
+            txtRua.Size = new Size(185, 23);
+            txtRua.TabIndex = 1;
             // 
             // label5
             // 
@@ -258,7 +258,7 @@
             Controls.Add(label3);
             Controls.Add(dtpInicio);
             Controls.Add(label2);
-            Controls.Add(comboBox1);
+            Controls.Add(cmbTema);
             Controls.Add(btnCancelar);
             Controls.Add(btnGravar);
             Controls.Add(txtId);
@@ -277,22 +277,22 @@
         private Label label1;
         private Button btnCancelar;
         private Button btnGravar;
-        private ComboBox comboBox1;
+        private ComboBox cmbTema;
         private Label label2;
         private DateTimePicker dtpInicio;
         private Label label3;
         private Label label4;
         private DateTimePicker dtpFinal;
         private GroupBox groupBox1;
-        private TextBox textBox5;
+        private TextBox txtEstado;
         private Label label9;
-        private TextBox textBox4;
+        private TextBox txtCidade;
         private Label label8;
-        private TextBox textBox3;
+        private TextBox txtNumero;
         private Label label7;
-        private TextBox textBox2;
+        private TextBox txtBairro;
         private Label label6;
-        private TextBox textBox1;
+        private TextBox txtRua;
         private Label label5;
     }
 }
