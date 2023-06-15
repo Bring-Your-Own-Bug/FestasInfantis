@@ -1,6 +1,7 @@
 ﻿using FestasInfantis.Dominio.ModuloAluguel;
 using FestasInfantis.Dominio.ModuloCliente;
 using FestasInfantis.Dominio.ModuloFesta;
+using FestasInfantis.WinApp.ModuloFesta;
 
 namespace FestasInfantis.WinApp.ModuloAluguel
 {
@@ -9,6 +10,7 @@ namespace FestasInfantis.WinApp.ModuloAluguel
         List<Cliente> clientesTeste = new List<Cliente>();
         private readonly IRepositorioAluguel _repositorioAluguel;
         private readonly IRepositorioFesta _repositorioFesta;
+        private TabelaAluguelControl _tabelaAluguel;
 
         public ControladorAluguel(IRepositorioAluguel repositorioAluguel, IRepositorioFesta repositorioFesta)
         {
@@ -48,15 +50,17 @@ namespace FestasInfantis.WinApp.ModuloAluguel
 
         public override string ObterTipoCadastro()
         {
-            throw new NotImplementedException();
+            return "Cadastro de Alugueis";
         }
 
         public override UserControl ObterUserControl()
         {
-            throw new NotImplementedException();
+            _tabelaAluguel ??= new TabelaAluguelControl();
+            CarregarAlugueis();
+            return _tabelaAluguel;
         }
 
-        public void CarregarFestas()
+        public void CarregarAlugueis()
         {
             List<Aluguel> alugueis = _repositorioAluguel.SelecionarTodos();
             _tabelaAluguel.AtualizarRegistros(alugueis);

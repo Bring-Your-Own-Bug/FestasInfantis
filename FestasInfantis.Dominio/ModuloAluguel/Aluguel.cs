@@ -7,28 +7,34 @@ namespace FestasInfantis.Dominio.ModuloAluguel
     {
         public Festa Festa { get; set; }
         public Cliente Cliente { get; set; }
-        public decimal Valor { get; set; }
+        public decimal ValorTotal { get; set; }
+        public decimal ValorAluguel { get; set; }
         public StatusPagamento Status { get; set; }
+        public DateTime DataQuitacao { get; set; }
 
         public Aluguel()
         {
             
         }
 
-        public Aluguel(Festa festa, Cliente cliente, decimal valor, StatusPagamento status)
+        public Aluguel(Festa festa, Cliente cliente, decimal valorAluguel, decimal valorTotal, StatusPagamento status, DateTime dataQuitacao)
         {
             Festa = festa;
             Cliente = cliente;
-            Valor = valor;
+            ValorAluguel = valorAluguel;
+            ValorTotal = valorTotal;
             Status = status;
+            DataQuitacao = dataQuitacao;
         }
 
         public override void AtualizarInformacoes(Aluguel registroAtualizado)
         {
             Festa = registroAtualizado.Festa;
             Cliente = registroAtualizado.Cliente;
-            Valor = registroAtualizado.Valor;
+            ValorAluguel = registroAtualizado.ValorAluguel;
+            ValorTotal = registroAtualizado.ValorTotal;
             Status = registroAtualizado.Status;
+            DataQuitacao = registroAtualizado.DataQuitacao;
         }
 
         public override List<string> Validar()
