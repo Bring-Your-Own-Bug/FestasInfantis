@@ -49,6 +49,8 @@
             label6 = new Label();
             txtRua = new TextBox();
             label5 = new Label();
+            label10 = new Label();
+            txtTituloFesta = new TextBox();
             groupBox1.SuspendLayout();
             SuspendLayout();
             // 
@@ -75,10 +77,10 @@
             // 
             btnCancelar.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             btnCancelar.DialogResult = DialogResult.Cancel;
-            btnCancelar.Location = new Point(310, 396);
+            btnCancelar.Location = new Point(310, 472);
             btnCancelar.Name = "btnCancelar";
             btnCancelar.Size = new Size(89, 45);
-            btnCancelar.TabIndex = 24;
+            btnCancelar.TabIndex = 11;
             btnCancelar.Text = "Cancelar";
             btnCancelar.UseVisualStyleBackColor = true;
             // 
@@ -86,10 +88,10 @@
             // 
             btnGravar.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             btnGravar.DialogResult = DialogResult.OK;
-            btnGravar.Location = new Point(215, 396);
+            btnGravar.Location = new Point(215, 472);
             btnGravar.Name = "btnGravar";
             btnGravar.Size = new Size(89, 45);
-            btnGravar.TabIndex = 23;
+            btnGravar.TabIndex = 10;
             btnGravar.Text = "Gravar";
             btnGravar.UseVisualStyleBackColor = true;
             btnGravar.Click += btnGravar_Click;
@@ -98,15 +100,15 @@
             // 
             cmbTema.DropDownStyle = ComboBoxStyle.DropDownList;
             cmbTema.FormattingEnabled = true;
-            cmbTema.Location = new Point(46, 104);
+            cmbTema.Location = new Point(48, 160);
             cmbTema.Name = "cmbTema";
             cmbTema.Size = new Size(325, 23);
-            cmbTema.TabIndex = 25;
+            cmbTema.TabIndex = 2;
             // 
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(155, 86);
+            label2.Location = new Point(157, 142);
             label2.Name = "label2";
             label2.Size = new Size(109, 15);
             label2.TabIndex = 26;
@@ -116,16 +118,16 @@
             // 
             dtpInicio.CustomFormat = "HH:mm";
             dtpInicio.Format = DateTimePickerFormat.Custom;
-            dtpInicio.Location = new Point(22, 173);
+            dtpInicio.Location = new Point(24, 229);
             dtpInicio.Name = "dtpInicio";
             dtpInicio.ShowUpDown = true;
             dtpInicio.Size = new Size(148, 23);
-            dtpInicio.TabIndex = 27;
+            dtpInicio.TabIndex = 3;
             // 
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(55, 155);
+            label3.Location = new Point(57, 211);
             label3.Name = "label3";
             label3.Size = new Size(81, 15);
             label3.TabIndex = 28;
@@ -134,7 +136,7 @@
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new Point(285, 155);
+            label4.Location = new Point(287, 211);
             label4.Name = "label4";
             label4.Size = new Size(75, 15);
             label4.TabIndex = 29;
@@ -144,11 +146,11 @@
             // 
             dtpFinal.CustomFormat = "HH:mm";
             dtpFinal.Format = DateTimePickerFormat.Custom;
-            dtpFinal.Location = new Point(244, 173);
+            dtpFinal.Location = new Point(246, 229);
             dtpFinal.Name = "dtpFinal";
             dtpFinal.ShowUpDown = true;
             dtpFinal.Size = new Size(148, 23);
-            dtpFinal.TabIndex = 30;
+            dtpFinal.TabIndex = 4;
             // 
             // groupBox1
             // 
@@ -162,7 +164,7 @@
             groupBox1.Controls.Add(label6);
             groupBox1.Controls.Add(txtRua);
             groupBox1.Controls.Add(label5);
-            groupBox1.Location = new Point(22, 225);
+            groupBox1.Location = new Point(24, 281);
             groupBox1.Name = "groupBox1";
             groupBox1.Size = new Size(370, 162);
             groupBox1.TabIndex = 31;
@@ -190,7 +192,7 @@
             txtCidade.Location = new Point(57, 91);
             txtCidade.Name = "txtCidade";
             txtCidade.Size = new Size(292, 23);
-            txtCidade.TabIndex = 7;
+            txtCidade.TabIndex = 8;
             // 
             // label8
             // 
@@ -206,7 +208,8 @@
             txtNumero.Location = new Point(275, 29);
             txtNumero.Name = "txtNumero";
             txtNumero.Size = new Size(74, 23);
-            txtNumero.TabIndex = 5;
+            txtNumero.TabIndex = 6;
+            txtNumero.KeyPress += txtNumero_KeyPress;
             // 
             // label7
             // 
@@ -222,7 +225,7 @@
             txtBairro.Location = new Point(57, 61);
             txtBairro.Name = "txtBairro";
             txtBairro.Size = new Size(292, 23);
-            txtBairro.TabIndex = 3;
+            txtBairro.TabIndex = 7;
             // 
             // label6
             // 
@@ -238,7 +241,7 @@
             txtRua.Location = new Point(57, 29);
             txtRua.Name = "txtRua";
             txtRua.Size = new Size(185, 23);
-            txtRua.TabIndex = 1;
+            txtRua.TabIndex = 5;
             // 
             // label5
             // 
@@ -249,11 +252,29 @@
             label5.TabIndex = 0;
             label5.Text = "Rua";
             // 
+            // label10
+            // 
+            label10.AutoSize = true;
+            label10.Location = new Point(168, 70);
+            label10.Name = "label10";
+            label10.Size = new Size(83, 15);
+            label10.TabIndex = 32;
+            label10.Text = "Título da Festa";
+            // 
+            // txtTituloFesta
+            // 
+            txtTituloFesta.Location = new Point(61, 88);
+            txtTituloFesta.Name = "txtTituloFesta";
+            txtTituloFesta.Size = new Size(301, 23);
+            txtTituloFesta.TabIndex = 1;
+            // 
             // TelaFestaForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(413, 453);
+            ClientSize = new Size(413, 529);
+            Controls.Add(txtTituloFesta);
+            Controls.Add(label10);
             Controls.Add(groupBox1);
             Controls.Add(dtpFinal);
             Controls.Add(label4);
@@ -296,5 +317,7 @@
         private Label label6;
         private TextBox txtRua;
         private Label label5;
+        private Label label10;
+        private TextBox txtTituloFesta;
     }
 }

@@ -28,6 +28,11 @@ namespace FestasInfantis.WinApp.ModuloFesta
                 },
                 new()
                 {
+                    Name = "titulo",
+                    HeaderText = "Título"
+                },
+                new()
+                {
                     Name = "tema",
                     HeaderText = "Tema"
                 },
@@ -59,7 +64,10 @@ namespace FestasInfantis.WinApp.ModuloFesta
             {
                 if (festa != null)
                 {
-                    grid.Rows.Add(festa.Id, festa.Tema.Nome, festa.Data, festa.HorarioInicio, festa.HorarioFinal);
+                    grid.Rows.Add(festa.Id, festa.Nome, festa.Tema.Nome,
+                        festa.Data.ToString("dd/MM/yyyy"),
+                        festa.HorarioInicio.ToString(@"hh\:mm\:ss"),
+                        festa.HorarioFinal.ToString(@"hh\:mm\:ss"));
                 }
             }
         }

@@ -18,6 +18,8 @@ namespace FestasInfantis.WinApp.ModuloFesta
         {
             int id = Convert.ToInt32(txtId.Text);
 
+            string nome = txtTituloFesta.Text;
+
             Tema tema = cmbTema.SelectedItem as Tema;
 
             DateTime data = dtpInicio.Value;
@@ -28,7 +30,7 @@ namespace FestasInfantis.WinApp.ModuloFesta
 
             Endereco endereco = ObterEndereco();
 
-            Festa festa = new(tema, data, horarioInicio, horarioFinal, endereco);
+            Festa festa = new(nome, tema, data, horarioInicio, horarioFinal, endereco);
 
             if (id > 0)
                 festa.Id = id;
@@ -39,6 +41,7 @@ namespace FestasInfantis.WinApp.ModuloFesta
         public void ConfigurarForm(Festa festaSelecionada)
         {
             txtId.Text = festaSelecionada.Id.ToString();
+            txtTituloFesta.Text = festaSelecionada.Nome;
             dtpInicio.Value = DateTime.Now.Date.Add(festaSelecionada.HorarioInicio);
             dtpFinal.Value = DateTime.Now.Date.Add(festaSelecionada.HorarioFinal);
             txtRua.Text = festaSelecionada.Endereco.Rua;
@@ -71,8 +74,16 @@ namespace FestasInfantis.WinApp.ModuloFesta
         private void btnGravar_Click(object sender, EventArgs e)
         {
             Festa festa = ObterFesta();
+            Endereco endereco = ObterEndereco();
+
+            if (cmbTema.SelectedItem == null)
+            {
+                MessageBox.Show("O tema não pode estar vazio");
+                DialogResult = DialogResult.None;
+            }
 
             List<string> erros = festa.Validar();
+            erros.AddRange(endereco.ValidarEndereco());
 
             if (erros.Count > 0)
             {
@@ -80,6 +91,11 @@ namespace FestasInfantis.WinApp.ModuloFesta
 
                 DialogResult = DialogResult.None;
             }
+        }
+
+        private void txtNumero_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            Utils.FormatarTxtNumerica(sender, e);
         }
     }
 }
