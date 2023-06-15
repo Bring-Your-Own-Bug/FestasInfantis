@@ -18,6 +18,11 @@
             EhAntigo = ehAntigo;
         }
 
+        public override string ToString()
+        {
+            return Nome;
+        }
+
         public override void AtualizarInformacoes(Cliente registroAtualizado)
         {
             throw new NotImplementedException();

@@ -26,6 +26,11 @@ namespace FestasInfantis.Dominio.ModuloFesta
             Endereco = endereco;
         }
 
+        public override string ToString()
+        {
+            return Nome;
+        }
+
         public override void AtualizarInformacoes(Festa registroAtualizado)
         {
             Id = registroAtualizado.Id;

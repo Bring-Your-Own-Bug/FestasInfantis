@@ -1,6 +1,7 @@
 ﻿using FestasInfantis.Dominio.ModuloAluguel;
 using FestasInfantis.Dominio.ModuloCliente;
 using FestasInfantis.Dominio.ModuloFesta;
+using FestasInfantis.Dominio.ModuloTema;
 using FestasInfantis.WinApp.ModuloFesta;
 
 namespace FestasInfantis.WinApp.ModuloAluguel
@@ -40,12 +41,47 @@ namespace FestasInfantis.WinApp.ModuloAluguel
 
         public override void Editar()
         {
-            throw new NotImplementedException();
+            Aluguel aluguelSelecionado = ObterAluguelSelecionado();
+
+            if (aluguelSelecionado == null)
+            {
+                MessageBox.Show($"Selecione um aluguel primeiro!",
+                    "Edição de Alugueis",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Exclamation);
+                return;
+            }
+
+            List<Festa> festas = _repositorioFesta.SelecionarTodos();
+            List<Cliente> clientes = clientesTeste;
+            TelaAluguelForm telaAluguel = new(festas, clientes);
+            telaAluguel.ConfigurarForm(aluguelSelecionado);
+
+            if (telaAluguel.ShowDialog() == DialogResult.OK)
+                _repositorioAluguel.Editar(telaAluguel.ObterAluguel().Id, telaAluguel.ObterAluguel());
+
+            CarregarAlugueis();
         }
 
         public override void Excluir()
         {
-            throw new NotImplementedException();
+            Aluguel aluguelSelecionado = ObterAluguelSelecionado();
+
+            if (aluguelSelecionado == null)
+            {
+                MessageBox.Show($"Selecione um aluguel primeiro!",
+                    "Exclusão de Alugueis",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Exclamation);
+                return;
+            }
+
+            if (MessageBox.Show($"Deseja excluir o aluguel do cliente {aluguelSelecionado.Cliente.Nome}?",
+                "Exclusão de Alugueis",
+                MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
+                _repositorioAluguel.Excluir(aluguelSelecionado);
+
+            CarregarAlugueis();
         }
 
         public override string ObterTipoCadastro()
@@ -64,7 +100,12 @@ namespace FestasInfantis.WinApp.ModuloAluguel
         {
             List<Aluguel> alugueis = _repositorioAluguel.SelecionarTodos();
             _tabelaAluguel.AtualizarRegistros(alugueis);
-            TelaPrincipalForm.Instancia.AtualizarRodape($"Visualizando {alugueis.Count} festa(s)");
+            TelaPrincipalForm.Instancia.AtualizarRodape($"Visualizando {alugueis.Count} aluguel(s)");
+        }
+
+        private Aluguel ObterAluguelSelecionado()
+        {
+            return _repositorioAluguel.SelecionarPorId(_tabelaAluguel.ObterIdSelecionado());
         }
     }
 }

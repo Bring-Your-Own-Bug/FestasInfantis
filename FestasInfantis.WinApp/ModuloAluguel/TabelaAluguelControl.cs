@@ -70,7 +70,7 @@ namespace FestasInfantis.WinApp.ModuloAluguel
                 if (aluguel != null)
                 {
                     grid.Rows.Add(aluguel.Id, aluguel.Festa.Nome, aluguel.Cliente.Nome,
-                        aluguel.Festa.Endereco, aluguel.ValorTotal, aluguel.Status,
+                        aluguel.Festa.Endereco, $"R$ {aluguel.ValorTotal}", aluguel.Status,
                         aluguel.Status == StatusPagamento.Pago ? aluguel.DataQuitacao.ToString("dd/MM/yyyy") : "Pagamento em Aberto");
                 }
             }

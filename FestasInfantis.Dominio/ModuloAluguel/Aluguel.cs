@@ -39,7 +39,12 @@ namespace FestasInfantis.Dominio.ModuloAluguel
 
         public override List<string> Validar()
         {
-            throw new NotImplementedException();
+            List<string> erros = new();
+
+            if (ValorAluguel < 0)
+                erros.Add("O campo 'valor do aluguel' não pode ser negativo");
+
+            return erros;
         }
     }
 }

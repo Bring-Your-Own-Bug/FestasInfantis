@@ -83,5 +83,36 @@ namespace FestasInfantis.WinApp.ModuloAluguel
         {
             Utils.FormatarTxtNumerica(sender, e);
         }
+
+        private void btnGravar_Click(object sender, EventArgs e)
+        {
+            Aluguel aluguel = ObterAluguel();
+
+            if (cmbCliente.SelectedItem == null)
+            {
+                MessageBox.Show("O cliente não pode estar vazio");
+                DialogResult = DialogResult.None;
+            }
+
+            if (cmbFesta.SelectedItem == null)
+            {
+                MessageBox.Show("A festa não pode estar vazia");
+                DialogResult = DialogResult.None;
+            }
+
+            if (cmbStatus.SelectedItem == null)
+            {
+                MessageBox.Show("O status de pagamento não pode estar vazio");
+                DialogResult = DialogResult.None;
+            }
+
+            List<string> erros = aluguel.Validar();
+
+            if (erros.Count > 0)
+            {
+                TelaPrincipalForm.Instancia.AtualizarRodape(erros[0]);
+                DialogResult = DialogResult.None;
+            }
+        }
     }
 }
