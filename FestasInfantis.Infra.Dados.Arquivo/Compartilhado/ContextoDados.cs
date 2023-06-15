@@ -1,4 +1,5 @@
-﻿using FestasInfantis.Dominio.ModuloTema;
+﻿using FestasInfantis.Dominio.ModuloFesta;
+using FestasInfantis.Dominio.ModuloTema;
 using System.Text.Json;
 using System.Text.Json.Serialization;
 
@@ -9,10 +10,12 @@ namespace FestasInfantis.Infra.Dados.Arquivo.Compartilhado
         private const string NOME_ARQUIVO = "Compartilhado\\FestasInfantis.json";
 
         public List<Tema> temas;
+        public List<Festa> festas;
 
         public ContextoDados()
         {
             temas = new List<Tema>();
+            festas = new List<Festa>();
         }
 
         public ContextoDados(bool carregarDados) : this()

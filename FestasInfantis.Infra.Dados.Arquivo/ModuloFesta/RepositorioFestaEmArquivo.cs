@@ -2,7 +2,7 @@
 
 namespace FestasInfantis.Infra.Dados.Arquivo.ModuloFesta
 {
-    public class RepositorioFestaEmArquivo : RepositorioBaseEmArquivo<Festa>
+    public class RepositorioFestaEmArquivo : RepositorioBaseEmArquivo<Festa>, IRepositorioFesta
     {
         public RepositorioFestaEmArquivo(ContextoDados contextoDados) : base(contextoDados)
         {
@@ -10,7 +10,7 @@ namespace FestasInfantis.Infra.Dados.Arquivo.ModuloFesta
 
         protected override List<Festa> ObterRegistros()
         {
-            throw new NotImplementedException();
+            return contextoDados.festas;
         }
     }
 }
