@@ -10,6 +10,20 @@ namespace FestasInfantis.Dominio.ModuloFesta
         public TimeSpan HorarioFinal { get; set; }
         public Endereco Endereco { get; set; }
 
+        public Festa()
+        {
+            
+        }
+
+        public Festa(Tema tema, DateTime data, TimeSpan horarioInicio, TimeSpan horarioFinal, Endereco endereco)
+        {
+            Tema = tema;
+            Data = data;
+            HorarioInicio = horarioInicio;
+            HorarioFinal = horarioFinal;
+            Endereco = endereco;
+        }
+
         public override void AtualizarInformacoes(Festa registroAtualizado)
         {
             Id = registroAtualizado.Id;
