@@ -31,15 +31,15 @@
             txtId = new TextBox();
             label1 = new Label();
             label2 = new Label();
-            cmbTema = new ComboBox();
+            cmbCliente = new ComboBox();
             label3 = new Label();
-            comboBox1 = new ComboBox();
+            cmbFesta = new ComboBox();
             label4 = new Label();
-            textBox1 = new TextBox();
+            txtValor = new TextBox();
             btnCancelar = new Button();
             btnGravar = new Button();
             label5 = new Label();
-            comboBox2 = new ComboBox();
+            cmbStatus = new ComboBox();
             label6 = new Label();
             SuspendLayout();
             // 
@@ -71,14 +71,14 @@
             label2.TabIndex = 28;
             label2.Text = "Selecione um Cliente";
             // 
-            // cmbTema
+            // cmbCliente
             // 
-            cmbTema.DropDownStyle = ComboBoxStyle.DropDownList;
-            cmbTema.FormattingEnabled = true;
-            cmbTema.Location = new Point(52, 107);
-            cmbTema.Name = "cmbTema";
-            cmbTema.Size = new Size(325, 23);
-            cmbTema.TabIndex = 27;
+            cmbCliente.DropDownStyle = ComboBoxStyle.DropDownList;
+            cmbCliente.FormattingEnabled = true;
+            cmbCliente.Location = new Point(52, 107);
+            cmbCliente.Name = "cmbCliente";
+            cmbCliente.Size = new Size(325, 23);
+            cmbCliente.TabIndex = 1;
             // 
             // label3
             // 
@@ -89,14 +89,14 @@
             label3.TabIndex = 30;
             label3.Text = "Selecione uma Festa";
             // 
-            // comboBox1
+            // cmbFesta
             // 
-            comboBox1.DropDownStyle = ComboBoxStyle.DropDownList;
-            comboBox1.FormattingEnabled = true;
-            comboBox1.Location = new Point(52, 159);
-            comboBox1.Name = "comboBox1";
-            comboBox1.Size = new Size(325, 23);
-            comboBox1.TabIndex = 29;
+            cmbFesta.DropDownStyle = ComboBoxStyle.DropDownList;
+            cmbFesta.FormattingEnabled = true;
+            cmbFesta.Location = new Point(52, 159);
+            cmbFesta.Name = "cmbFesta";
+            cmbFesta.Size = new Size(325, 23);
+            cmbFesta.TabIndex = 2;
             // 
             // label4
             // 
@@ -107,12 +107,12 @@
             label4.TabIndex = 31;
             label4.Text = "Valor do Aluguel (Sem contar o Tema)";
             // 
-            // textBox1
+            // txtValor
             // 
-            textBox1.Location = new Point(156, 223);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(118, 23);
-            textBox1.TabIndex = 32;
+            txtValor.Location = new Point(156, 223);
+            txtValor.Name = "txtValor";
+            txtValor.Size = new Size(118, 23);
+            txtValor.TabIndex = 3;
             // 
             // btnCancelar
             // 
@@ -121,7 +121,7 @@
             btnCancelar.Location = new Point(331, 280);
             btnCancelar.Name = "btnCancelar";
             btnCancelar.Size = new Size(89, 45);
-            btnCancelar.TabIndex = 34;
+            btnCancelar.TabIndex = 6;
             btnCancelar.Text = "Cancelar";
             btnCancelar.UseVisualStyleBackColor = true;
             // 
@@ -132,7 +132,7 @@
             btnGravar.Location = new Point(236, 280);
             btnGravar.Name = "btnGravar";
             btnGravar.Size = new Size(89, 45);
-            btnGravar.TabIndex = 33;
+            btnGravar.TabIndex = 5;
             btnGravar.Text = "Gravar";
             btnGravar.UseVisualStyleBackColor = true;
             // 
@@ -145,14 +145,14 @@
             label5.TabIndex = 35;
             label5.Text = "R$";
             // 
-            // comboBox2
+            // cmbStatus
             // 
-            comboBox2.DropDownStyle = ComboBoxStyle.DropDownList;
-            comboBox2.FormattingEnabled = true;
-            comboBox2.Location = new Point(35, 292);
-            comboBox2.Name = "comboBox2";
-            comboBox2.Size = new Size(121, 23);
-            comboBox2.TabIndex = 36;
+            cmbStatus.DropDownStyle = ComboBoxStyle.DropDownList;
+            cmbStatus.FormattingEnabled = true;
+            cmbStatus.Location = new Point(35, 292);
+            cmbStatus.Name = "cmbStatus";
+            cmbStatus.Size = new Size(121, 23);
+            cmbStatus.TabIndex = 4;
             // 
             // label6
             // 
@@ -169,16 +169,16 @@
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(434, 337);
             Controls.Add(label6);
-            Controls.Add(comboBox2);
+            Controls.Add(cmbStatus);
             Controls.Add(label5);
             Controls.Add(btnCancelar);
             Controls.Add(btnGravar);
-            Controls.Add(textBox1);
+            Controls.Add(txtValor);
             Controls.Add(label4);
             Controls.Add(label3);
-            Controls.Add(comboBox1);
+            Controls.Add(cmbFesta);
             Controls.Add(label2);
-            Controls.Add(cmbTema);
+            Controls.Add(cmbCliente);
             Controls.Add(txtId);
             Controls.Add(label1);
             Name = "TelaAluguelForm";
@@ -192,15 +192,15 @@
         private TextBox txtId;
         private Label label1;
         private Label label2;
-        private ComboBox cmbTema;
+        private ComboBox cmbCliente;
         private Label label3;
-        private ComboBox comboBox1;
+        private ComboBox cmbFesta;
         private Label label4;
-        private TextBox textBox1;
+        private TextBox txtValor;
         private Button btnCancelar;
         private Button btnGravar;
         private Label label5;
-        private ComboBox comboBox2;
+        private ComboBox cmbStatus;
         private Label label6;
     }
 }

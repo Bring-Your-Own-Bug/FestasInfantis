@@ -1,7 +1,4 @@
 ﻿using FestasInfantis.Dominio.ModuloAluguel;
-using FestasInfantis.Dominio.ModuloFesta;
-using FestasInfantis.Dominio.ModuloTema;
-using FestasInfantis.WinApp.ModuloFesta;
 
 namespace FestasInfantis.WinApp.ModuloAluguel
 {
@@ -20,13 +17,13 @@ namespace FestasInfantis.WinApp.ModuloAluguel
 
         public override void Inserir()
         {
-            //List<Aluguel> alugueis = _repositorioAluguel.SelecionarTodos();
-            //TelaAluguelForm telaAluguel = new(alugueis);
+            List<Aluguel> alugueis = _repositorioAluguel.SelecionarTodos();
+            TelaAluguelForm telaAluguel = new(alugueis);
 
-            //if (telaAluguel.ShowDialog() == DialogResult.OK)
-            //    _repositorioAluguel.Inserir(telaAluguel.ObterAluguel());
+            if (telaAluguel.ShowDialog() == DialogResult.OK)
+                _repositorioAluguel.Inserir(telaAluguel.ObterAluguel());
 
-            //CarregarAlugueis();
+            CarregarAlugueis();
         }
 
         public override void Editar()
