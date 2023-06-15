@@ -175,7 +175,7 @@ namespace FestasInfantis.WinApp.ModuloTema
         {
             List<Tema> temas = _repositorioTema.SelecionarTodos();
             _tabelaTema.AtualizarRegistros(temas);
-            TelaPrincipalForm.Instancia.AtualizarRodape($"Visualizando {temas.Count} tarefa(s)");
+            TelaPrincipalForm.Instancia.AtualizarRodape($"Visualizando {temas.Count} tema(s)");
         }
     }
 }
