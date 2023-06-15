@@ -1,3 +1,4 @@
+using FestasInfantis.Dominio.ModuloCliente;
 using FestasInfantis.Dominio.ModuloFesta;
 using FestasInfantis.Dominio.ModuloTema;
 using FestasInfantis.Infra.Dados.Arquivo.Compartilhado;

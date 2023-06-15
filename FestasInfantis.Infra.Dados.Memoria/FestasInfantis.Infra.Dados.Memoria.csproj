@@ -13,6 +13,7 @@
   <ItemGroup>
     <Folder Include="ModuloFesta\" />
     <Folder Include="ModuloAluguel\" />
+    <Folder Include="ModuloCliente\" />
   </ItemGroup>
 
 </Project>

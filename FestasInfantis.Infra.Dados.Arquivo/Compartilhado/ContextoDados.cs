@@ -1,4 +1,5 @@
-﻿using FestasInfantis.Dominio.ModuloFesta;
+﻿using FestasInfantis.Dominio.ModuloAluguel;
+using FestasInfantis.Dominio.ModuloFesta;
 using FestasInfantis.Dominio.ModuloTema;
 using System.Text.Json;
 using System.Text.Json.Serialization;
@@ -11,11 +12,13 @@ namespace FestasInfantis.Infra.Dados.Arquivo.Compartilhado
 
         public List<Tema> temas;
         public List<Festa> festas;
+        public List<Aluguel> alugueis;
 
         public ContextoDados()
         {
             temas = new List<Tema>();
             festas = new List<Festa>();
+            alugueis = new List<Aluguel>();
         }
 
         public ContextoDados(bool carregarDados) : this()
@@ -40,6 +43,7 @@ namespace FestasInfantis.Infra.Dados.Arquivo.Compartilhado
 
                     temas = ctx.temas;
                     festas = ctx.festas;
+                    alugueis = ctx.alugueis;
                 }
             }
         }

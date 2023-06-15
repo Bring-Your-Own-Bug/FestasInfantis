@@ -2,7 +2,7 @@
 
 namespace FestasInfantis.Infra.Dados.Arquivo.ModuloAluguel
 {
-    public class RepositorioAluguelEmArquivo : RepositorioBaseEmArquivo<Aluguel>
+    public class RepositorioAluguelEmArquivo : RepositorioBaseEmArquivo<Aluguel>, IRepositorioAluguel
     {
         public RepositorioAluguelEmArquivo(ContextoDados contextoDados) : base(contextoDados)
         {
@@ -10,7 +10,7 @@ namespace FestasInfantis.Infra.Dados.Arquivo.ModuloAluguel
 
         protected override List<Aluguel> ObterRegistros()
         {
-            throw new NotImplementedException();
+            return contextoDados.alugueis;
         }
     }
 }

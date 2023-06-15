@@ -1,5 +1,4 @@
 ﻿using FestasInfantis.Dominio.ModuloTema;
-using FestasInfantis.Infra.Dados.Memoria.Compartilhado;
 
 namespace FestasInfantis.WinApp.ModuloTema
 {

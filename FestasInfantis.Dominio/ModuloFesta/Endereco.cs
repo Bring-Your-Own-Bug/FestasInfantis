@@ -39,5 +39,10 @@
 
             return erros;
         }
+
+        public override string ToString()
+        {
+            return $"{Rua}, {Numero}, {Bairro}, {Cidade}";
+        }
     }
 }
