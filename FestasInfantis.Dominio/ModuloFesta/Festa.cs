@@ -29,6 +29,7 @@ namespace FestasInfantis.Dominio.ModuloFesta
         public override void AtualizarInformacoes(Festa registroAtualizado)
         {
             Id = registroAtualizado.Id;
+            Nome = registroAtualizado.Nome;
             Data = registroAtualizado.Data;
             HorarioInicio = registroAtualizado.HorarioInicio;
             HorarioFinal = registroAtualizado.HorarioFinal;
