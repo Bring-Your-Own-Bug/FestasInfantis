@@ -26,9 +26,7 @@ namespace FestasInfantis.WinApp.ModuloTema
             TelaTemaForm telaTema = new();
 
             if (telaTema.ShowDialog() == DialogResult.OK)
-            {
                 _repositorioTema.Inserir(telaTema.ObterTema());
-            }
 
             CarregarTemas();
         }
@@ -50,9 +48,7 @@ namespace FestasInfantis.WinApp.ModuloTema
             telaTema.ConfigurarForm(temaSelecionado);
 
             if (telaTema.ShowDialog() == DialogResult.OK)
-            {
                 _repositorioTema.Editar(telaTema.ObterTema().Id, telaTema.ObterTema());
-            }
 
             CarregarTemas();
         }
