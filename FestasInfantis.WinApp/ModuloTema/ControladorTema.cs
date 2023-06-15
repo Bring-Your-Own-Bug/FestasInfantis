@@ -126,14 +126,12 @@ namespace FestasInfantis.WinApp.ModuloTema
 
                 Dictionary<ItemTema, bool> estadosAnteriores = temaSelecionado.Itens.ToDictionary(item => item, item => item.Marcado);
 
-                decimal varAux = 0;
-
                 foreach (ItemTema item in itensMarcados)
                 {
                     if (!estadosAnteriores[item])
                     {
                         temaSelecionado.MarcarItem(item);
-                        varAux += item.Valor;
+                        temaSelecionado.ValorTotal += item.Valor;
                     }
                 }
 
@@ -142,11 +140,9 @@ namespace FestasInfantis.WinApp.ModuloTema
                     if (estadosAnteriores[item])
                     {
                         temaSelecionado.DesmarcarItem(item);
-                        varAux -= item.Valor;
+                        temaSelecionado.ValorTotal -= item.Valor;
                     }
                 }
-
-                temaSelecionado.ValorTotal += varAux;
 
                 _repositorioTema.Editar(temaSelecionado.Id, temaSelecionado);
             }

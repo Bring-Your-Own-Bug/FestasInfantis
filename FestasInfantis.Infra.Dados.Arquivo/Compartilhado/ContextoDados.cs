@@ -39,6 +39,7 @@ namespace FestasInfantis.Infra.Dados.Arquivo.Compartilhado
                     ContextoDados ctx = JsonSerializer.Deserialize<ContextoDados>(File.ReadAllText(NOME_ARQUIVO), ObterConfiguracaoJson());
 
                     temas = ctx.temas;
+                    festas = ctx.festas;
                 }
             }
         }
