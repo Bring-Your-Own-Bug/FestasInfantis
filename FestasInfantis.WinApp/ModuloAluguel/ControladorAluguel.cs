@@ -1,14 +1,32 @@
-﻿namespace FestasInfantis.WinApp.ModuloAluguel
+﻿using FestasInfantis.Dominio.ModuloAluguel;
+using FestasInfantis.Dominio.ModuloFesta;
+using FestasInfantis.Dominio.ModuloTema;
+using FestasInfantis.WinApp.ModuloFesta;
+
+namespace FestasInfantis.WinApp.ModuloAluguel
 {
     public class ControladorAluguel : ControladorBase
     {
-        public override string ToolTipInserir => throw new NotImplementedException();
-        public override string ToolTipEditar => throw new NotImplementedException();
-        public override string ToolTipExcluir => throw new NotImplementedException();
+        private readonly IRepositorioAluguel _repositorioAluguel;
+
+        public ControladorAluguel(IRepositorioAluguel repositorioAluguel)
+        {
+            _repositorioAluguel = repositorioAluguel;
+        }
+
+        public override string ToolTipInserir => "Inserir Novo Aluguel";
+        public override string ToolTipEditar => "Editar Aluguel Existente";
+        public override string ToolTipExcluir => "Excluir Aluguel Existente";
 
         public override void Inserir()
         {
-            throw new NotImplementedException();
+            //List<Aluguel> alugueis = _repositorioAluguel.SelecionarTodos();
+            //TelaAluguelForm telaAluguel = new(alugueis);
+
+            //if (telaAluguel.ShowDialog() == DialogResult.OK)
+            //    _repositorioAluguel.Inserir(telaAluguel.ObterAluguel());
+
+            //CarregarAlugueis();
         }
 
         public override void Editar()
