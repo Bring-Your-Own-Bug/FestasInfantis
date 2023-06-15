@@ -125,7 +125,7 @@ namespace FestasInfantis.WinApp
 
         private void btnDefinirValor_Click(object sender, EventArgs e)
         {
-            _controlador.DefinirValor();
+            _controlador.EscolherItens();
         }
     }
 }

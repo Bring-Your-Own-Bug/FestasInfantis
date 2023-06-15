@@ -4,6 +4,7 @@
     {
         public string Nome { get; set; }
         public decimal Valor { get; set; }
+        public bool Marcado { get; set; }
 
         public ItemTema()
         {
@@ -14,6 +15,16 @@
         {
             Nome = nome;
             Valor = valor;
+        }
+
+        public void Marcar()
+        {
+            Marcado = true;
+        }
+
+        public void Desmarcar()
+        {
+            Marcado = false;
         }
 
         public override string ToString()

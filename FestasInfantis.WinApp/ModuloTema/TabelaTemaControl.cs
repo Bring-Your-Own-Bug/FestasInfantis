@@ -49,7 +49,7 @@ namespace FestasInfantis.WinApp.ModuloTema
             {
                 if (tema != null)
                 {
-                    grid.Rows.Add(tema.Id, tema.Nome, tema.ValorTotal);
+                    grid.Rows.Add(tema.Id, tema.Nome, $"R$ {tema.ValorTotal:F2}");
                 }
             }
         }

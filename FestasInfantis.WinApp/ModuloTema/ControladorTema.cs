@@ -12,10 +12,14 @@ namespace FestasInfantis.WinApp.ModuloTema
         }
 
         public override string ToolTipInserir => "Inserir Novo Tema";
-
         public override string ToolTipEditar => "Editar Tema Existente";
-
         public override string ToolTipExcluir => "Excluir Tema Existente";
+
+        public override string ToolTipAdicionarItem => "Adicionar Itens no Tema";
+        public override string ToolTipMarcarItem => "Marcar/Desmarcar Itens no Tema";
+
+        public override bool EhAdicionarItem => true;
+        public override bool EhMarcarItem => true;
 
         public override void Inserir()
         {
@@ -119,9 +123,63 @@ namespace FestasInfantis.WinApp.ModuloTema
             }
         }
 
-        public override void DefinirValor()
+        public override void EscolherItens()
         {
-            base.DefinirValor();
+            Tema temaSelecionado = ObterTemaSelecionado();
+
+            if (temaSelecionado == null)
+            {
+                MessageBox.Show($"Selecione um tema primeiro!",
+                    "Itens do Tema",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Exclamation);
+
+                return;
+            }
+
+            TelaAtualizarItensForm telaAtualizarItens = new(temaSelecionado);
+
+            DialogResult dialogResult = telaAtualizarItens.ShowDialog();
+
+            if (dialogResult == DialogResult.OK)
+            {
+                List<ItemTema> itensMarcados = telaAtualizarItens.ObterItensMarcados();
+
+                List<ItemTema> itensDesmarcados = telaAtualizarItens.ObterItensDesmarcados();
+
+                Dictionary<ItemTema, bool> estadosAnteriores = new();
+
+                foreach (ItemTema item in temaSelecionado.Itens)
+                {
+                    estadosAnteriores[item] = item.Marcado;
+                }
+
+                decimal varAux = 0;
+
+                foreach (ItemTema item in itensMarcados)
+                {
+                    if (!estadosAnteriores[item])
+                    {
+                        temaSelecionado.MarcarItem(item);
+                        varAux += item.Valor;
+                    }
+                }
+
+                foreach (ItemTema item in itensDesmarcados)
+                {
+                    if (estadosAnteriores[item])
+                    {
+                        temaSelecionado.DesmarcarItem(item);
+                        varAux -= item.Valor;
+                    }
+                }
+
+                temaSelecionado.ValorTotal += varAux;
+
+                _repositorioTema.Editar(temaSelecionado.Id, temaSelecionado);
+
+                CarregarTemas();
+            }
         }
 
         public override string ObterTipoCadastro()

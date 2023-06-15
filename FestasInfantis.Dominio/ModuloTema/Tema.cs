@@ -43,5 +43,19 @@
         {
             Itens.Add(item);
         }
+
+        public void MarcarItem(ItemTema item)
+        {
+            ItemTema itemSelecionado = Itens.FirstOrDefault(x => x.Equals(item));
+
+            itemSelecionado.Marcar();
+        }
+
+        public void DesmarcarItem(ItemTema item)
+        {
+            ItemTema itemSelecionado = Itens.FirstOrDefault(x => x.Equals(item));
+
+            itemSelecionado.Desmarcar();
+        }
     }
 }

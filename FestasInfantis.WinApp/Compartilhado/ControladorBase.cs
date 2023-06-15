@@ -5,10 +5,15 @@
         public abstract string ToolTipInserir { get; }
         public abstract string ToolTipEditar { get; }
         public abstract string ToolTipExcluir { get; }
+        public virtual string ToolTipAdicionarItem { get; }
+        public virtual string ToolTipMarcarItem { get; }
 
         public virtual bool EhInserirHabilitado => true;
         public virtual bool EhEditarHabilitado => true;
         public virtual bool EhExcluirHabilitado => true;
+
+        public virtual bool EhAdicionarItem => false;
+        public virtual bool EhMarcarItem => false;
 
         public abstract void Inserir();
 
@@ -20,7 +25,7 @@
         {
         }
 
-        public virtual void DefinirValor()
+        public virtual void EscolherItens()
         {
         }
 

@@ -42,10 +42,10 @@
             btnExcluir = new ToolStripButton();
             toolStripSeparator1 = new ToolStripSeparator();
             btnAdicionarItem = new ToolStripButton();
-            btnDefinirValor = new ToolStripButton();
+            btnMarcarItem = new ToolStripButton();
+            toolStripSeparator2 = new ToolStripSeparator();
             lblTipoCadastro = new ToolStripLabel();
             painelRegistros = new Panel();
-            toolStripSeparator2 = new ToolStripSeparator();
             menuStrip1.SuspendLayout();
             statusStrip1.SuspendLayout();
             toolbar.SuspendLayout();
@@ -113,7 +113,7 @@
             // toolbar
             // 
             toolbar.Enabled = false;
-            toolbar.Items.AddRange(new ToolStripItem[] { btnInserir, btnEditar, btnExcluir, toolStripSeparator1, btnAdicionarItem, btnDefinirValor, toolStripSeparator2, lblTipoCadastro });
+            toolbar.Items.AddRange(new ToolStripItem[] { btnInserir, btnEditar, btnExcluir, toolStripSeparator1, btnAdicionarItem, btnMarcarItem, toolStripSeparator2, lblTipoCadastro });
             toolbar.Location = new Point(0, 24);
             toolbar.Name = "toolbar";
             toolbar.Size = new Size(800, 45);
@@ -172,16 +172,21 @@
             btnAdicionarItem.Size = new Size(42, 42);
             btnAdicionarItem.Click += btnAdicionarItem_Click;
             // 
-            // btnDefinirValor
+            // btnMarcarItem
             // 
-            btnDefinirValor.DisplayStyle = ToolStripItemDisplayStyle.Image;
-            btnDefinirValor.Image = Properties.Resources.attach_money_FILL0_wght400_GRAD0_opsz24;
-            btnDefinirValor.ImageScaling = ToolStripItemImageScaling.None;
-            btnDefinirValor.ImageTransparentColor = Color.Magenta;
-            btnDefinirValor.Name = "btnDefinirValor";
-            btnDefinirValor.Padding = new Padding(7);
-            btnDefinirValor.Size = new Size(42, 42);
-            btnDefinirValor.Click += btnDefinirValor_Click;
+            btnMarcarItem.DisplayStyle = ToolStripItemDisplayStyle.Image;
+            btnMarcarItem.Image = Properties.Resources.check_box_FILL0_wght400_GRAD0_opsz24;
+            btnMarcarItem.ImageScaling = ToolStripItemImageScaling.None;
+            btnMarcarItem.ImageTransparentColor = Color.Magenta;
+            btnMarcarItem.Name = "btnMarcarItem";
+            btnMarcarItem.Padding = new Padding(7);
+            btnMarcarItem.Size = new Size(42, 42);
+            btnMarcarItem.Click += btnDefinirValor_Click;
+            // 
+            // toolStripSeparator2
+            // 
+            toolStripSeparator2.Name = "toolStripSeparator2";
+            toolStripSeparator2.Size = new Size(6, 45);
             // 
             // lblTipoCadastro
             // 
@@ -196,11 +201,6 @@
             painelRegistros.Name = "painelRegistros";
             painelRegistros.Size = new Size(800, 359);
             painelRegistros.TabIndex = 3;
-            // 
-            // toolStripSeparator2
-            // 
-            toolStripSeparator2.Name = "toolStripSeparator2";
-            toolStripSeparator2.Size = new Size(6, 45);
             // 
             // TelaPrincipalForm
             // 
@@ -244,7 +244,7 @@
         private ToolStripSeparator toolStripSeparator1;
         private ToolStripLabel lblTipoCadastro;
         private ToolStripButton btnAdicionarItem;
-        private ToolStripButton btnDefinirValor;
+        private ToolStripButton btnMarcarItem;
         private Panel painelRegistros;
         private ToolStripSeparator toolStripSeparator2;
     }
