@@ -1,17 +1,18 @@
 ﻿using FestasInfantis.Dominio.ModuloFesta;
 using FestasInfantis.Dominio.ModuloTema;
-using FestasInfantis.WinApp.ModuloTema;
 
 namespace FestasInfantis.WinApp.ModuloFesta
 {
     public class ControladorFesta : ControladorBase
     {
         private readonly IRepositorioFesta _repositorioFesta;
+        private readonly IRepositorioTema _repositorioTema;
         private TabelaFestaControl _tabelaFesta;
 
-        public ControladorFesta(IRepositorioFesta repositorioFesta)
+        public ControladorFesta(IRepositorioFesta repositorioFesta, IRepositorioTema repositorioTema)
         {
             _repositorioFesta = repositorioFesta;
+            _repositorioTema = repositorioTema;
         }
 
         public override string ToolTipInserir => "Inserir Nova Festa";
@@ -20,7 +21,8 @@ namespace FestasInfantis.WinApp.ModuloFesta
 
         public override void Inserir()
         {
-            TelaFestaForm telaFesta = new();
+            List<Tema> temas = _repositorioTema.SelecionarTodos();
+            TelaFestaForm telaFesta = new(temas);
 
             if (telaFesta.ShowDialog() == DialogResult.OK)
                 _repositorioFesta.Inserir(telaFesta.ObterFesta());

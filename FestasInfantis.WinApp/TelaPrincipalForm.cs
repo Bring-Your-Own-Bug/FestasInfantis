@@ -44,7 +44,7 @@ namespace FestasInfantis.WinApp
 
         private void festaMenuItem_Click(object sender, EventArgs e)
         {
-            _controlador = new ControladorFesta(_repositorioFesta);
+            _controlador = new ControladorFesta(_repositorioFesta, _repositorioTema);
 
             ConfigurarTelaPrincipal(_controlador);
         }

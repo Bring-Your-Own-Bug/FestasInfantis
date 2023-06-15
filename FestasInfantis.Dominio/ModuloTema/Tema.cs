@@ -20,6 +20,11 @@
             ValorTotal = valor;
         }
 
+        public override string ToString()
+        {
+            return $"{Nome}";
+        }
+
         public override void AtualizarInformacoes(Tema registroAtualizado)
         {
             Id = registroAtualizado.Id;

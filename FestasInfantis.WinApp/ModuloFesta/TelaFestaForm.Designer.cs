@@ -92,9 +92,11 @@
             btnGravar.TabIndex = 23;
             btnGravar.Text = "Gravar";
             btnGravar.UseVisualStyleBackColor = true;
+            btnGravar.Click += btnGravar_Click;
             // 
             // cmbTema
             // 
+            cmbTema.DropDownStyle = ComboBoxStyle.DropDownList;
             cmbTema.FormattingEnabled = true;
             cmbTema.Location = new Point(46, 104);
             cmbTema.Name = "cmbTema";
