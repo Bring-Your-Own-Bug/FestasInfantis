@@ -49,9 +49,13 @@ namespace FestasInfantis.Dominio.ModuloFesta
 
             if (string.IsNullOrWhiteSpace(Nome))
                 erros.Add("O campo 'titulo da festa' não pode estar vazio");
+
+            if (Data < DateTime.Today)
+                erros.Add("A data da festa não pode ser no passado");
+
             if (HorarioInicio >= HorarioFinal)
                 erros.Add("Horário de início deve ser menor que o horário final");
-            if (diferencaHorario.TotalMinutes < 15)
+            else if (diferencaHorario.TotalMinutes < 15)
                 erros.Add("A diferença entre o horário de início e o horário de término deve ser de pelo menos 15 minutos");
 
             return erros;

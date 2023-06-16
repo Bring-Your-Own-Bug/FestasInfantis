@@ -58,11 +58,11 @@ namespace FestasInfantis.WinApp.ModuloAluguel
             grid.Columns.AddRange(colunas);
 
             grid.Columns["id"].Width = 15;
-            grid.Columns["cliente"].Width = 60;
-            grid.Columns["endereco"].Width = 85;
+            grid.Columns["cliente"].Width = 50;
+            grid.Columns["endereco"].Width = 60;
             grid.Columns["valor"].Width = 25;
             grid.Columns["status"].Width = 25;
-            grid.Columns["dataQuitacao"].Width = 30;
+            grid.Columns["dataQuitacao"].Width = 45;
         }
 
         public void AtualizarRegistros(List<Aluguel> alugueis)
