@@ -66,8 +66,8 @@ namespace FestasInfantis.WinApp.ModuloFesta
                 {
                     grid.Rows.Add(festa.Id, festa.Nome, festa.Tema.Nome,
                         festa.Data.ToString("dd/MM/yyyy"),
-                        festa.HorarioInicio.ToString(@"hh\:mm\:ss"),
-                        festa.HorarioFinal.ToString(@"hh\:mm\:ss"));
+                        festa.HorarioInicio.ToString(@"hh\:mm"),
+                        festa.HorarioFinal.ToString(@"hh\:mm"));
                 }
             }
         }

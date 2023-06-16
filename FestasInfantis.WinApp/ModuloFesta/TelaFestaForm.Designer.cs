@@ -51,6 +51,8 @@
             label5 = new Label();
             label10 = new Label();
             txtTituloFesta = new TextBox();
+            label11 = new Label();
+            dtpData = new DateTimePicker();
             groupBox1.SuspendLayout();
             SuspendLayout();
             // 
@@ -100,7 +102,7 @@
             // 
             cmbTema.DropDownStyle = ComboBoxStyle.DropDownList;
             cmbTema.FormattingEnabled = true;
-            cmbTema.Location = new Point(48, 160);
+            cmbTema.Location = new Point(48, 145);
             cmbTema.Name = "cmbTema";
             cmbTema.Size = new Size(325, 23);
             cmbTema.TabIndex = 2;
@@ -108,7 +110,7 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(157, 142);
+            label2.Location = new Point(157, 127);
             label2.Name = "label2";
             label2.Size = new Size(109, 15);
             label2.TabIndex = 26;
@@ -118,7 +120,7 @@
             // 
             dtpInicio.CustomFormat = "HH:mm";
             dtpInicio.Format = DateTimePickerFormat.Custom;
-            dtpInicio.Location = new Point(24, 229);
+            dtpInicio.Location = new Point(22, 252);
             dtpInicio.Name = "dtpInicio";
             dtpInicio.ShowUpDown = true;
             dtpInicio.Size = new Size(148, 23);
@@ -127,7 +129,7 @@
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(57, 211);
+            label3.Location = new Point(55, 234);
             label3.Name = "label3";
             label3.Size = new Size(81, 15);
             label3.TabIndex = 28;
@@ -136,7 +138,7 @@
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new Point(287, 211);
+            label4.Location = new Point(285, 234);
             label4.Name = "label4";
             label4.Size = new Size(75, 15);
             label4.TabIndex = 29;
@@ -146,7 +148,7 @@
             // 
             dtpFinal.CustomFormat = "HH:mm";
             dtpFinal.Format = DateTimePickerFormat.Custom;
-            dtpFinal.Location = new Point(246, 229);
+            dtpFinal.Location = new Point(244, 252);
             dtpFinal.Name = "dtpFinal";
             dtpFinal.ShowUpDown = true;
             dtpFinal.Size = new Size(148, 23);
@@ -268,11 +270,30 @@
             txtTituloFesta.Size = new Size(301, 23);
             txtTituloFesta.TabIndex = 1;
             // 
+            // label11
+            // 
+            label11.AutoSize = true;
+            label11.Location = new Point(187, 180);
+            label11.Name = "label11";
+            label11.Size = new Size(31, 15);
+            label11.TabIndex = 33;
+            label11.Text = "Data";
+            // 
+            // dtpData
+            // 
+            dtpData.Format = DateTimePickerFormat.Short;
+            dtpData.Location = new Point(104, 198);
+            dtpData.Name = "dtpData";
+            dtpData.Size = new Size(200, 23);
+            dtpData.TabIndex = 34;
+            // 
             // TelaFestaForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(413, 529);
+            Controls.Add(dtpData);
+            Controls.Add(label11);
             Controls.Add(txtTituloFesta);
             Controls.Add(label10);
             Controls.Add(groupBox1);
@@ -319,5 +340,7 @@
         private Label label5;
         private Label label10;
         private TextBox txtTituloFesta;
+        private Label label11;
+        private DateTimePicker dtpData;
     }
 }

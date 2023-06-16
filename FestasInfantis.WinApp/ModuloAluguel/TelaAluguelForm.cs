@@ -34,7 +34,7 @@ namespace FestasInfantis.WinApp.ModuloAluguel
 
             StatusPagamento status = (StatusPagamento)cmbStatus.SelectedItem;
 
-            DateTime data = DateTime.Now;
+            DateTime data = festa.Data;
 
             Aluguel aluguel = new(festa, cliente, valorAluguel, valorTotal, status, data);
 

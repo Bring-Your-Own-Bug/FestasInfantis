@@ -22,7 +22,7 @@ namespace FestasInfantis.WinApp.ModuloFesta
 
             Tema tema = cmbTema.SelectedItem as Tema;
 
-            DateTime data = dtpInicio.Value;
+            DateTime data = dtpData.Value;
 
             TimeSpan horarioInicio = dtpInicio.Value.TimeOfDay;
 
@@ -42,6 +42,7 @@ namespace FestasInfantis.WinApp.ModuloFesta
         {
             txtId.Text = festaSelecionada.Id.ToString();
             txtTituloFesta.Text = festaSelecionada.Nome;
+            dtpData.Value = festaSelecionada.Data;
             dtpInicio.Value = DateTime.Now.Date.Add(festaSelecionada.HorarioInicio);
             dtpFinal.Value = DateTime.Now.Date.Add(festaSelecionada.HorarioFinal);
             txtRua.Text = festaSelecionada.Endereco.Rua;
