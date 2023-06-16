@@ -14,7 +14,7 @@ namespace FestasInfantis.WinApp.ModuloTema
 
             grid.ConfigurarGridSomenteLeitura();
 
-            grid.Columns["id"].Width = 25;
+            grid.Columns["id"].Width = 15;
         }
 
         private void ConfigurarColunas()
