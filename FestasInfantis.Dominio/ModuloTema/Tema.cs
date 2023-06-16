@@ -37,9 +37,9 @@
             List<string> erros = new();
 
             if (string.IsNullOrWhiteSpace(Nome))
-                erros.Add("O campo 'nome' é obrigatório");
+                erros.Add("O campo 'tema' é obrigatório");
             if (ValorTotal < 0)
-                erros.Add("O campo 'Valor' não pode ser negativo");
+                erros.Add("O campo 'valor' não pode ser negativo");
 
             return erros;
         }
