@@ -15,6 +15,7 @@
         {
             Nome = nome;
             Valor = valor;
+            Marcado = true;
         }
 
         public void Marcar()

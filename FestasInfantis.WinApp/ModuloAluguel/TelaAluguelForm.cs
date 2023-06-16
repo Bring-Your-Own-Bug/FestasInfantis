@@ -86,25 +86,28 @@ namespace FestasInfantis.WinApp.ModuloAluguel
 
         private void btnGravar_Click(object sender, EventArgs e)
         {
-            Aluguel aluguel = ObterAluguel();
-
             if (cmbCliente.SelectedItem == null)
             {
                 MessageBox.Show("O cliente não pode estar vazio");
                 DialogResult = DialogResult.None;
+                return;
             }
 
             if (cmbFesta.SelectedItem == null)
             {
                 MessageBox.Show("A festa não pode estar vazia");
                 DialogResult = DialogResult.None;
+                return;
             }
 
             if (cmbStatus.SelectedItem == null)
             {
                 MessageBox.Show("O status de pagamento não pode estar vazio");
                 DialogResult = DialogResult.None;
+                return;
             }
+
+            Aluguel aluguel = ObterAluguel();
 
             List<string> erros = aluguel.Validar();
 

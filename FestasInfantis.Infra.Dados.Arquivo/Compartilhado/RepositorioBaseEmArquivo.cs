@@ -1,6 +1,4 @@
-﻿using FestasInfantis.Dominio.Compartilhado;
-
-namespace FestasInfantis.Infra.Dados.Arquivo.Compartilhado
+﻿namespace FestasInfantis.Infra.Dados.Arquivo.Compartilhado
 {
     public abstract class RepositorioBaseEmArquivo<T> where T : EntidadeBase<T>
     {

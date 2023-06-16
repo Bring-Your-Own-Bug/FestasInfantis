@@ -6,9 +6,11 @@ using FestasInfantis.Infra.Dados.Arquivo.Compartilhado;
 using FestasInfantis.Infra.Dados.Arquivo.ModuloAluguel;
 using FestasInfantis.Infra.Dados.Arquivo.ModuloFesta;
 using FestasInfantis.Infra.Dados.Arquivo.ModuloTema;
+using FestasInfantis.Infra.Dados.Arquivo.ModuloCliente;
 using FestasInfantis.WinApp.ModuloAluguel;
 using FestasInfantis.WinApp.ModuloFesta;
 using FestasInfantis.WinApp.ModuloTema;
+using FestasInfantis.WinApp.ModuloCliente;
 
 namespace FestasInfantis.WinApp
 {
@@ -21,6 +23,7 @@ namespace FestasInfantis.WinApp
         private readonly IRepositorioTema _repositorioTema = new RepositorioTemaEmArquivo(_contextoDados);
         private readonly IRepositorioFesta _repositorioFesta = new RepositorioFestaEmArquivo(_contextoDados);
         private readonly IRepositorioAluguel _repositorioAluguel = new RepositorioAluguelEmArquivo(_contextoDados);
+        private readonly IRepositorioCliente _repositorioCliente = new RepositorioClienteEmArquivo(_contextoDados);
 
         private static TelaPrincipalForm _telaPrincipal;
         public TelaPrincipalForm()
@@ -44,7 +47,9 @@ namespace FestasInfantis.WinApp
 
         private void clienteMenuItem_Click(object sender, EventArgs e)
         {
+            _controlador = new ControladorCliente(_repositorioCliente);
 
+            ConfigurarTelaPrincipal(_controlador);
         }
 
         private void festaMenuItem_Click(object sender, EventArgs e)
@@ -56,7 +61,7 @@ namespace FestasInfantis.WinApp
 
         private void aluguelMenuItem_Click(object sender, EventArgs e)
         {
-            _controlador = new ControladorAluguel(_repositorioAluguel, _repositorioFesta);
+            _controlador = new ControladorAluguel(_repositorioAluguel, _repositorioFesta, _repositorioCliente);
 
             ConfigurarTelaPrincipal(_controlador);
         }

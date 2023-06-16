@@ -1,21 +1,21 @@
-﻿namespace FestasInfantis.Dominio.ModuloCliente
+﻿using System.Text.RegularExpressions;
+
+namespace FestasInfantis.Dominio.ModuloCliente
 {
     public class Cliente : EntidadeBase<Cliente>
     {
         public string Nome { get; set; }
         public string Telefone { get; set; }
-        public bool EhAntigo { get; set; }
 
         public Cliente()
         {
             
         }
 
-        public Cliente(string nome, string telefone, bool ehAntigo)
+        public Cliente(string nome, string telefone)
         {
             Nome = nome;
             Telefone = telefone;
-            EhAntigo = ehAntigo;
         }
 
         public override string ToString()
@@ -25,12 +25,25 @@
 
         public override void AtualizarInformacoes(Cliente registroAtualizado)
         {
-            throw new NotImplementedException();
+            Nome = registroAtualizado.Nome;
+            Telefone = registroAtualizado.Telefone;
         }
 
         public override List<string> Validar()
         {
-            throw new NotImplementedException();
+            List<string> erros = new List<string>();
+
+            bool ehTelefoneValido = Regex.IsMatch(Telefone, @"^\(\d{2}\) \d{5}-\d{4}$");
+
+            if (string.IsNullOrWhiteSpace(Nome))
+                erros.Add("O campo 'nome' é obrigatório");
+
+            if (Telefone == "(  )      -")
+                erros.Add("O campo 'telefone' é obrigatório");
+            else if (!ehTelefoneValido)
+                erros.Add("O campo 'telefone' está inválido");
+
+            return erros;
         }
     }
 }

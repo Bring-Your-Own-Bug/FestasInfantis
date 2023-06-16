@@ -73,14 +73,15 @@ namespace FestasInfantis.WinApp.ModuloFesta
 
         private void btnGravar_Click(object sender, EventArgs e)
         {
-            Festa festa = ObterFesta();
-            Endereco endereco = ObterEndereco();
-
             if (cmbTema.SelectedItem == null)
             {
                 MessageBox.Show("O tema não pode estar vazio");
                 DialogResult = DialogResult.None;
+                return;
             }
+
+            Festa festa = ObterFesta();
+            Endereco endereco = ObterEndereco();
 
             List<string> erros = festa.Validar();
             erros.AddRange(endereco.ValidarEndereco());
