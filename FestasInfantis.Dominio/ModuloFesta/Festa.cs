@@ -49,10 +49,10 @@ namespace FestasInfantis.Dominio.ModuloFesta
 
             if (string.IsNullOrWhiteSpace(Nome))
                 erros.Add("O campo 'titulo da festa' não pode estar vazio");
-            if (diferencaHorario.TotalMinutes < 15)
-                erros.Add("A diferença entre o horário de início e o horário de término deve ser de pelo menos 15 minutos");
             if (HorarioInicio >= HorarioFinal)
                 erros.Add("Horário de início deve ser menor que o horário final");
+            if (diferencaHorario.TotalMinutes < 15)
+                erros.Add("A diferença entre o horário de início e o horário de término deve ser de pelo menos 15 minutos");
 
             return erros;
         }
