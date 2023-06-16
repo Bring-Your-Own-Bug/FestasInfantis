@@ -8,13 +8,10 @@ namespace FestasInfantis.WinApp.ModuloTema
         {
             InitializeComponent();
 
-            ConfigurarColunas();
-
             grid.ConfigurarGridZebrado();
-
             grid.ConfigurarGridSomenteLeitura();
 
-            grid.Columns["id"].Width = 15;
+            ConfigurarColunas();
         }
 
         private void ConfigurarColunas()
@@ -39,6 +36,8 @@ namespace FestasInfantis.WinApp.ModuloTema
             };
 
             grid.Columns.AddRange(colunas);
+
+            grid.Columns["id"].Width = 15;
         }
 
         public void AtualizarRegistros(List<Tema> temas)

@@ -8,13 +8,10 @@ namespace FestasInfantis.WinApp.ModuloAluguel
         {
             InitializeComponent();
 
-            ConfigurarColunas();
-
             grid.ConfigurarGridZebrado();
-
             grid.ConfigurarGridSomenteLeitura();
 
-            grid.Columns["id"].Width = 15;
+            ConfigurarColunas();
         }
 
         private void ConfigurarColunas()
@@ -57,8 +54,15 @@ namespace FestasInfantis.WinApp.ModuloAluguel
                     HeaderText = "Data de Quitação"
                 }
             };
-
+            
             grid.Columns.AddRange(colunas);
+
+            grid.Columns["id"].Width = 15;
+            grid.Columns["cliente"].Width = 60;
+            grid.Columns["endereco"].Width = 85;
+            grid.Columns["valor"].Width = 25;
+            grid.Columns["status"].Width = 25;
+            grid.Columns["dataQuitacao"].Width = 30;
         }
 
         public void AtualizarRegistros(List<Aluguel> alugueis)
@@ -70,7 +74,7 @@ namespace FestasInfantis.WinApp.ModuloAluguel
                 if (aluguel != null)
                 {
                     grid.Rows.Add(aluguel.Id, aluguel.Festa.Nome, aluguel.Cliente.Nome,
-                        aluguel.Festa.Endereco, $"R$ {aluguel.ValorTotal}", aluguel.Status,
+                        aluguel.Festa.Endereco, $"R$ {aluguel.ValorTotal:F2}", aluguel.Status,
                         aluguel.Status == StatusPagamento.Pago ? aluguel.DataQuitacao.ToString("dd/MM/yyyy") : "Pagamento em Aberto");
                 }
             }
