@@ -34,9 +34,12 @@ namespace FestasInfantis.Dominio.ModuloCliente
             List<string> erros = new List<string>();
 
             bool ehTelefoneValido = Regex.IsMatch(Telefone, @"^\(\d{2}\) \d{5}-\d{4}$");
+            bool ehNomeValido = Regex.IsMatch(Nome, @"^[\p{L}\p{M}'\s-]+$");
 
             if (string.IsNullOrWhiteSpace(Nome))
                 erros.Add("O campo 'nome' é obrigatório");
+            else if (!ehNomeValido)
+                erros.Add("O campo 'nome' está inválido");
 
             if (Telefone == "(  )      -")
                 erros.Add("O campo 'telefone' é obrigatório");
