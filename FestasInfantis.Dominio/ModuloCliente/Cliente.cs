@@ -1,6 +1,6 @@
 ﻿using System.Text.RegularExpressions;
 
-namespace FestasInfantis.Dominio.ModuloCliente
+namespace FestasInfantis.Dominio.ModuloClienteS
 {
     public class Cliente : EntidadeBase<Cliente>
     {

@@ -22,7 +22,7 @@ namespace FestasInfantis.WinApp.ModuloTema
         private void btnAdicionar_Click(object sender, EventArgs e)
         {
             if (string.IsNullOrWhiteSpace(txtItem.Text))
-                return;
+                return;            
 
             string nome = txtItem.Text;
 
@@ -33,7 +33,13 @@ namespace FestasInfantis.WinApp.ModuloTema
 
             ItemTema itemTema = new(nome, valor);
 
-            listaItens.Items.Add(itemTema);
+            if (listaItens.Items.Contains(itemTema))
+            {
+                TelaPrincipalForm.Instancia.AtualizarRodape("Não é possível adicionar itens iguais");
+                return;
+            }
+
+                listaItens.Items.Add(itemTema);
 
             txtItem.Text = "";
             txtValor.Text = "";
