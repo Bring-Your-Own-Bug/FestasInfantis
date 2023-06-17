@@ -40,11 +40,7 @@ namespace FestasInfantis.WinApp.ModuloAluguel
                 data = festa.Data;
             }
 
-            StatusPagamento? status;
-
-            if (cmbStatus.SelectedItem != null)
-                status = (StatusPagamento?)cmbStatus.SelectedItem;
-            else status = null;
+            StatusPagamento? status = cmbStatus.SelectedItem != null ? (StatusPagamento?)cmbStatus.SelectedItem : null;
 
             Aluguel aluguel = new(festa, cliente, valorAluguel, valorTotal, status, data);
 
