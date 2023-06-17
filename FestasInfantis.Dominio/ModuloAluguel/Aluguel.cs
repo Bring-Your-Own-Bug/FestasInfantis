@@ -9,7 +9,7 @@ namespace FestasInfantis.Dominio.ModuloAluguel
         public Cliente Cliente { get; set; }
         public decimal ValorTotal { get; set; }
         public decimal ValorAluguel { get; set; }
-        public StatusPagamento Status { get; set; }
+        public StatusPagamento? Status { get; set; }
         public DateTime DataQuitacao { get; set; }
 
         public Aluguel()
@@ -17,7 +17,7 @@ namespace FestasInfantis.Dominio.ModuloAluguel
             
         }
 
-        public Aluguel(Festa festa, Cliente cliente, decimal valorAluguel, decimal valorTotal, StatusPagamento status, DateTime dataQuitacao)
+        public Aluguel(Festa festa, Cliente cliente, decimal valorAluguel, decimal valorTotal, StatusPagamento? status, DateTime dataQuitacao)
         {
             Festa = festa;
             Cliente = cliente;
@@ -41,8 +41,17 @@ namespace FestasInfantis.Dominio.ModuloAluguel
         {
             List<string> erros = new();
 
+            if (Cliente == null)
+                erros.Add("O campo 'cliente' não pode estar vazio");
+
+            if (Festa == null)
+                erros.Add("O campo 'festa' não pode estar vazio");
+
             if (ValorAluguel < 0)
                 erros.Add("O campo 'valor do aluguel' não pode ser negativo");
+
+            if (Status == null)
+                erros.Add("O campo 'status do pagamento' não pode estar vazio");
 
             return erros;
         }

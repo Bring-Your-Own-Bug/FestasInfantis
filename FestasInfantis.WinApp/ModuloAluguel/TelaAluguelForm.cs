@@ -30,11 +30,21 @@ namespace FestasInfantis.WinApp.ModuloAluguel
 
             decimal valorAluguel = Math.Round(Convert.ToDecimal(txtValor.Text), 2);
 
-            decimal valorTotal = valorAluguel + festa.Tema.ValorTotal;
+            decimal valorTotal = 0;
 
-            StatusPagamento status = (StatusPagamento)cmbStatus.SelectedItem;
+            DateTime data = DateTime.Now;
 
-            DateTime data = festa.Data;
+            if (festa != null)
+            {
+                valorTotal = valorAluguel + festa.Tema.ValorTotal;
+                data = festa.Data;
+            }
+
+            StatusPagamento? status;
+
+            if (cmbStatus.SelectedItem != null)
+                status = (StatusPagamento?)cmbStatus.SelectedItem;
+            else status = null;
 
             Aluguel aluguel = new(festa, cliente, valorAluguel, valorTotal, status, data);
 
@@ -86,30 +96,9 @@ namespace FestasInfantis.WinApp.ModuloAluguel
 
         private void btnGravar_Click(object sender, EventArgs e)
         {
-            if (cmbCliente.SelectedItem == null)
-            {
-                MessageBox.Show("O cliente não pode estar vazio");
-                DialogResult = DialogResult.None;
-                return;
-            }
+            List<string> erros = new();
 
-            if (cmbFesta.SelectedItem == null)
-            {
-                MessageBox.Show("A festa não pode estar vazia");
-                DialogResult = DialogResult.None;
-                return;
-            }
-
-            if (cmbStatus.SelectedItem == null)
-            {
-                MessageBox.Show("O status de pagamento não pode estar vazio");
-                DialogResult = DialogResult.None;
-                return;
-            }
-
-            Aluguel aluguel = ObterAluguel();
-
-            List<string> erros = aluguel.Validar();
+            erros.AddRange(ObterAluguel().Validar());
 
             if (erros.Count > 0)
             {

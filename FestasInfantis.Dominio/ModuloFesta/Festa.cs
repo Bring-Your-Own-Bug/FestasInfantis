@@ -50,6 +50,9 @@ namespace FestasInfantis.Dominio.ModuloFesta
             if (string.IsNullOrWhiteSpace(Nome))
                 erros.Add("O campo 'titulo da festa' não pode estar vazio");
 
+            if (Tema == null)
+                erros.Add("O tema não pode estar vazio");
+
             if (Data < DateTime.Today)
                 erros.Add("A data da festa não pode ser no passado");
 

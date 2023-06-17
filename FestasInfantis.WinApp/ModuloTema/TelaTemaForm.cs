@@ -44,14 +44,13 @@ namespace FestasInfantis.WinApp.ModuloTema
 
         private void btnGravar_Click(object sender, EventArgs e)
         {
-            Tema tema = ObterTema();
+            List<string> erros = new();
 
-            List<string> erros = tema.Validar();
+            erros.AddRange(ObterTema().Validar());
 
             if (erros.Count > 0)
             {
                 TelaPrincipalForm.Instancia.AtualizarRodape(erros[0]);
-
                 DialogResult = DialogResult.None;
             }
         }

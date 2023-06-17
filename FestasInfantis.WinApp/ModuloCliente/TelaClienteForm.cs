@@ -36,9 +36,9 @@ namespace FestasInfantis.WinApp.ModuloCliente
 
         private void btnGravar_Click(object sender, EventArgs e)
         {
-            Cliente cliente = ObterCliente();
+            List<string> erros = new();
 
-            List<string> erros = cliente.Validar();
+            erros.AddRange(ObterCliente().Validar());
 
             if (erros.Count > 0)
             {
