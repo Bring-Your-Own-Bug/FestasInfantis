@@ -19,8 +19,12 @@ namespace FestasInfantis.WinApp.ModuloTema
             txtTema.Text = tema.Nome;
         }
 
+
+
         private void btnAdicionar_Click(object sender, EventArgs e)
         {
+            primeiroClick = true;
+
             if (string.IsNullOrWhiteSpace(txtItem.Text))
             {
                 MessageBox.Show("Adicione pelo menos um nome ao item!", "Adição de itens",
@@ -46,7 +50,7 @@ namespace FestasInfantis.WinApp.ModuloTema
             listaItens.Items.Add(itemTema);
 
             txtItem.Text = "";
-            txtValor.Text = "";
+            txtValor.Text = "0";
             txtItem.Focus();
         }
 
@@ -67,6 +71,16 @@ namespace FestasInfantis.WinApp.ModuloTema
         public List<ItemTema> ObterItemRegistrado()
         {
             return listaItens.Items.Cast<ItemTema>().ToList();
+        }
+
+        bool primeiroClick = true;
+        private void txtValor_Click(object sender, EventArgs e)
+        {
+            if (primeiroClick)
+            {
+                txtValor.SelectAll();
+                primeiroClick = false;
+            }
         }
     }
 }

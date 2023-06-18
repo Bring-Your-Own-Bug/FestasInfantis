@@ -102,5 +102,15 @@ namespace FestasInfantis.WinApp.ModuloAluguel
                 DialogResult = DialogResult.None;
             }
         }
+
+        bool primeiroClick = true;
+        private void txtValor_Click(object sender, EventArgs e)
+        {
+            if (primeiroClick)
+            {
+                txtValor.SelectAll();
+                primeiroClick = false;
+            }
+        }
     }
 }

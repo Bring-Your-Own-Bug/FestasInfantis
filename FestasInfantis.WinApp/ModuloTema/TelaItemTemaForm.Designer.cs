@@ -165,6 +165,7 @@
             txtValor.Size = new Size(314, 23);
             txtValor.TabIndex = 2;
             txtValor.Text = "0";
+            txtValor.Click += txtValor_Click;
             txtValor.KeyPress += txtValor_KeyPress;
             // 
             // TelaItemTemaForm
