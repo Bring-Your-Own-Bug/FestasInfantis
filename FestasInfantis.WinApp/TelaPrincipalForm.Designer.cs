@@ -56,7 +56,7 @@
             menuStrip1.Items.AddRange(new ToolStripItem[] { cadastrosMenuItem });
             menuStrip1.Location = new Point(0, 0);
             menuStrip1.Name = "menuStrip1";
-            menuStrip1.Size = new Size(845, 24);
+            menuStrip1.Size = new Size(920, 24);
             menuStrip1.TabIndex = 0;
             menuStrip1.Text = "menuStrip1";
             // 
@@ -98,9 +98,9 @@
             // statusStrip1
             // 
             statusStrip1.Items.AddRange(new ToolStripItem[] { lblRodape });
-            statusStrip1.Location = new Point(0, 464);
+            statusStrip1.Location = new Point(0, 541);
             statusStrip1.Name = "statusStrip1";
-            statusStrip1.Size = new Size(845, 22);
+            statusStrip1.Size = new Size(920, 22);
             statusStrip1.TabIndex = 1;
             statusStrip1.Text = "statusStrip1";
             // 
@@ -116,7 +116,7 @@
             toolbar.Items.AddRange(new ToolStripItem[] { btnInserir, btnEditar, btnExcluir, toolStripSeparator1, btnAdicionarItem, btnMarcarItem, toolStripSeparator2, lblTipoCadastro });
             toolbar.Location = new Point(0, 24);
             toolbar.Name = "toolbar";
-            toolbar.Size = new Size(845, 45);
+            toolbar.Size = new Size(920, 45);
             toolbar.TabIndex = 2;
             toolbar.Text = "toolStrip1";
             // 
@@ -199,14 +199,14 @@
             painelRegistros.Dock = DockStyle.Fill;
             painelRegistros.Location = new Point(0, 69);
             painelRegistros.Name = "painelRegistros";
-            painelRegistros.Size = new Size(845, 395);
+            painelRegistros.Size = new Size(920, 472);
             painelRegistros.TabIndex = 3;
             // 
             // TelaPrincipalForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(845, 486);
+            ClientSize = new Size(920, 563);
             Controls.Add(painelRegistros);
             Controls.Add(toolbar);
             Controls.Add(statusStrip1);
