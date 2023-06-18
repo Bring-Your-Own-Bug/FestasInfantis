@@ -79,7 +79,7 @@
             // 
             btnCancelar.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             btnCancelar.DialogResult = DialogResult.Cancel;
-            btnCancelar.Location = new Point(310, 472);
+            btnCancelar.Location = new Point(310, 463);
             btnCancelar.Name = "btnCancelar";
             btnCancelar.Size = new Size(89, 45);
             btnCancelar.TabIndex = 11;
@@ -90,7 +90,7 @@
             // 
             btnGravar.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             btnGravar.DialogResult = DialogResult.OK;
-            btnGravar.Location = new Point(215, 472);
+            btnGravar.Location = new Point(215, 463);
             btnGravar.Name = "btnGravar";
             btnGravar.Size = new Size(89, 45);
             btnGravar.TabIndex = 10;
@@ -291,7 +291,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(413, 529);
+            ClientSize = new Size(413, 520);
             Controls.Add(dtpData);
             Controls.Add(label11);
             Controls.Add(txtTituloFesta);
