@@ -19,8 +19,6 @@ namespace FestasInfantis.WinApp.ModuloTema
             txtTema.Text = tema.Nome;
         }
 
-
-
         private void btnAdicionar_Click(object sender, EventArgs e)
         {
             primeiroClick = true;
