@@ -2,7 +2,7 @@
 
 Esta aplicação permite o usuário controlar aluguéis de festas infantis, podendo cadastrar clientes, temas, itens para cada tema, festas e aluguéis.
 
-## Features
+## Funcionalidades
 
 - Inserir, editar e excluir clientes
 - Inserir, editar e excluir temas
@@ -13,7 +13,7 @@ Esta aplicação permite o usuário controlar aluguéis de festas infantis, podendo 
 - Tabelas zebradas para melhor visualização dos cadastros
 
 
-## Authors
+## Autores
 
 - [@Rafael Santos](https://github.com/rafawashere1)
 - [@Kaue Ramos](https://github.com/TioKauas)
