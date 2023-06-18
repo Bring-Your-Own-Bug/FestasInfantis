@@ -1,15 +1,16 @@
-﻿using FestasInfantis.Dominio.ModuloAluguel;
+﻿using FestasInfantis.Dominio.Compartilhado;
+using FestasInfantis.Dominio.ModuloAluguel;
 using FestasInfantis.Dominio.ModuloCliente;
 
 namespace FestasInfantis.WinApp.ModuloCliente
 {
     internal class ControladorCliente : ControladorBase
     {
-        private readonly IRepositorioCliente _repositorioCliente;
-        private readonly IRepositorioAluguel _repositorioAluguel;
+        private readonly IRepositorio<Cliente> _repositorioCliente;
+        private readonly IRepositorio<Aluguel> _repositorioAluguel;
         private TabelaClienteControl _tabelaCliente;
 
-        public ControladorCliente(IRepositorioCliente repositorioCliente, IRepositorioAluguel repositorioAluguel)
+        public ControladorCliente(IRepositorio<Cliente> repositorioCliente, IRepositorio<Aluguel> repositorioAluguel)
         {
             _repositorioCliente = repositorioCliente;
             _repositorioAluguel = repositorioAluguel;

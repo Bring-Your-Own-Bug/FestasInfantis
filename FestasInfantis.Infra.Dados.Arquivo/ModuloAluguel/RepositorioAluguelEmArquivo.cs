@@ -2,7 +2,7 @@
 
 namespace FestasInfantis.Infra.Dados.Arquivo.ModuloAluguel
 {
-    public class RepositorioAluguelEmArquivo : RepositorioBaseEmArquivo<Aluguel>, IRepositorioAluguel
+    public class RepositorioAluguelEmArquivo : RepositorioBaseEmArquivo<Aluguel>, IRepositorio<Aluguel>
     {
         public RepositorioAluguelEmArquivo(ContextoDados contextoDados) : base(contextoDados)
         {

@@ -2,7 +2,7 @@
 
 namespace FestasInfantis.Infra.Dados.Arquivo.ModuloFesta
 {
-    public class RepositorioFestaEmArquivo : RepositorioBaseEmArquivo<Festa>, IRepositorioFesta
+    public class RepositorioFestaEmArquivo : RepositorioBaseEmArquivo<Festa>, IRepositorio<Festa>
     {
         public RepositorioFestaEmArquivo(ContextoDados contextoDados) : base(contextoDados)
         {

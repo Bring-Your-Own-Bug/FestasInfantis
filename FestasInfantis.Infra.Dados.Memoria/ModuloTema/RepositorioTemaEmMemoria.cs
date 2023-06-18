@@ -1,9 +1,8 @@
-﻿using FestasInfantis.Dominio.ModuloFesta;
-using FestasInfantis.Dominio.ModuloTema;
+﻿using FestasInfantis.Dominio.ModuloTema;
 
 namespace FestasInfantis.WinApp.ModuloTema
 {
-    public class RepositorioTemaEmMemoria : RepositorioBaseEmMemoria<Tema>, IRepositorioTema
+    public class RepositorioTemaEmMemoria : RepositorioBaseEmMemoria<Tema>, IRepositorio<Tema>
     {
         public RepositorioTemaEmMemoria(List<Tema> temas)
         {

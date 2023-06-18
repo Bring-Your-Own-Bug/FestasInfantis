@@ -1,4 +1,5 @@
-﻿using FestasInfantis.Dominio.ModuloAluguel;
+﻿using FestasInfantis.Dominio.Compartilhado;
+using FestasInfantis.Dominio.ModuloAluguel;
 using FestasInfantis.Dominio.ModuloCliente;
 using FestasInfantis.Dominio.ModuloFesta;
 
@@ -6,12 +7,12 @@ namespace FestasInfantis.WinApp.ModuloAluguel
 {
     public class ControladorAluguel : ControladorBase
     {
-        private readonly IRepositorioAluguel _repositorioAluguel;
-        private readonly IRepositorioFesta _repositorioFesta;
-        private readonly IRepositorioCliente _repositorioCliente;
+        private readonly IRepositorio<Aluguel> _repositorioAluguel;
+        private readonly IRepositorio<Festa> _repositorioFesta;
+        private readonly IRepositorio<Cliente> _repositorioCliente;
         private TabelaAluguelControl _tabelaAluguel;
 
-        public ControladorAluguel(IRepositorioAluguel repositorioAluguel, IRepositorioFesta repositorioFesta, IRepositorioCliente repositorioCliente)
+        public ControladorAluguel(IRepositorio<Aluguel> repositorioAluguel, IRepositorio<Festa> repositorioFesta, IRepositorio<Cliente> repositorioCliente)
         {
             _repositorioAluguel = repositorioAluguel;
             _repositorioFesta = repositorioFesta;

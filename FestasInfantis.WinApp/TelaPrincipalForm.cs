@@ -11,6 +11,7 @@ using FestasInfantis.WinApp.ModuloAluguel;
 using FestasInfantis.WinApp.ModuloFesta;
 using FestasInfantis.WinApp.ModuloTema;
 using FestasInfantis.WinApp.ModuloCliente;
+using FestasInfantis.Dominio.Compartilhado;
 
 namespace FestasInfantis.WinApp
 {
@@ -20,10 +21,10 @@ namespace FestasInfantis.WinApp
 
         private static ContextoDados _contextoDados = new(carregarDados: true);
 
-        private readonly IRepositorioTema _repositorioTema = new RepositorioTemaEmArquivo(_contextoDados);
-        private readonly IRepositorioFesta _repositorioFesta = new RepositorioFestaEmArquivo(_contextoDados);
-        private readonly IRepositorioAluguel _repositorioAluguel = new RepositorioAluguelEmArquivo(_contextoDados);
-        private readonly IRepositorioCliente _repositorioCliente = new RepositorioClienteEmArquivo(_contextoDados);
+        private readonly IRepositorio<Tema> _repositorioTema = new RepositorioTemaEmArquivo(_contextoDados);
+        private readonly IRepositorio<Festa> _repositorioFesta = new RepositorioFestaEmArquivo(_contextoDados);
+        private readonly IRepositorio<Aluguel> _repositorioAluguel = new RepositorioAluguelEmArquivo(_contextoDados);
+        private readonly IRepositorio<Cliente> _repositorioCliente = new RepositorioClienteEmArquivo(_contextoDados);
 
         private static TelaPrincipalForm _telaPrincipal;
         public TelaPrincipalForm()

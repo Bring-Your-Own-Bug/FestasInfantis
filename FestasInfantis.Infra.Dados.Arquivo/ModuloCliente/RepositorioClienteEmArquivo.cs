@@ -2,7 +2,7 @@
 
 namespace FestasInfantis.Infra.Dados.Arquivo.ModuloCliente
 {
-    public class RepositorioClienteEmArquivo : RepositorioBaseEmArquivo<Cliente>, IRepositorioCliente
+    public class RepositorioClienteEmArquivo : RepositorioBaseEmArquivo<Cliente>, IRepositorio<Cliente>
     {
         public RepositorioClienteEmArquivo(ContextoDados contextoDados) : base(contextoDados)
         {

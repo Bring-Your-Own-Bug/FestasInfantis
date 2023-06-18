@@ -1,14 +1,15 @@
-﻿using FestasInfantis.Dominio.ModuloFesta;
+﻿using FestasInfantis.Dominio.Compartilhado;
+using FestasInfantis.Dominio.ModuloFesta;
 using FestasInfantis.Dominio.ModuloTema;
 
 namespace FestasInfantis.WinApp.ModuloTema
 {
     public class ControladorTema : ControladorBase
     {
-        private readonly IRepositorioTema _repositorioTema;
-        private readonly IRepositorioFesta _repositorioFesta;
+        private readonly IRepositorio<Tema> _repositorioTema;
+        private readonly IRepositorio<Festa> _repositorioFesta;
         private TabelaTemaControl _tabelaTema;
-        public ControladorTema(IRepositorioTema repositorioTema, IRepositorioFesta repositorioFesta)
+        public ControladorTema(IRepositorio<Tema> repositorioTema, IRepositorio<Festa> repositorioFesta)
         {
             _repositorioTema = repositorioTema;
             _repositorioFesta = repositorioFesta;
