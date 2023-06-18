@@ -1,4 +1,5 @@
-﻿using FestasInfantis.Dominio.ModuloFesta;
+﻿using FestasInfantis.Dominio.ModuloAluguel;
+using FestasInfantis.Dominio.ModuloFesta;
 using FestasInfantis.Dominio.ModuloTema;
 
 namespace FestasInfantis.WinApp.ModuloFesta
@@ -7,12 +8,14 @@ namespace FestasInfantis.WinApp.ModuloFesta
     {
         private readonly IRepositorioFesta _repositorioFesta;
         private readonly IRepositorioTema _repositorioTema;
+        private readonly IRepositorioAluguel _repositorioAluguel;
         private TabelaFestaControl _tabelaFesta;
 
-        public ControladorFesta(IRepositorioFesta repositorioFesta, IRepositorioTema repositorioTema)
+        public ControladorFesta(IRepositorioFesta repositorioFesta, IRepositorioTema repositorioTema, IRepositorioAluguel repositorioAluguel)
         {
             _repositorioFesta = repositorioFesta;
             _repositorioTema = repositorioTema;
+            _repositorioAluguel = repositorioAluguel;
         }
 
         public override string ToolTipInserir => "Inserir Nova Festa";
@@ -57,6 +60,8 @@ namespace FestasInfantis.WinApp.ModuloFesta
         {
             Festa festaSelecionada = ObterFestaSelecionada();
 
+            List<Aluguel> alugueis = _repositorioAluguel.SelecionarTodos();
+
             if (festaSelecionada == null)
             {
                 MessageBox.Show($"Selecione uma festa primeiro!",
@@ -65,6 +70,15 @@ namespace FestasInfantis.WinApp.ModuloFesta
                     MessageBoxIcon.Exclamation);
                 return;
             }
+
+            if (FestaTemAluguel(festaSelecionada, alugueis))
+            {
+                MessageBox.Show($"A festa \"{festaSelecionada.Nome}\" tem um aluguel reservado!\n" +
+                    $"Delete o aluguel da festa \"{festaSelecionada.Nome}\" antes de excluí-la",
+                    "Exclusão de Festas", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
 
             if (MessageBox.Show($"Deseja excluir a festa {festaSelecionada.Tema.Nome}?", "Exclusão de Festas",
                 MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
@@ -95,6 +109,11 @@ namespace FestasInfantis.WinApp.ModuloFesta
         private Festa ObterFestaSelecionada()
         {
             return _repositorioFesta.SelecionarPorId(_tabelaFesta.ObterIdSelecionado());
+        }
+
+        private static bool FestaTemAluguel(Festa festaSelecionada, List<Aluguel> alugueis)
+        {
+            return alugueis.Exists(aluguel => aluguel.Festa != null && aluguel.Festa == festaSelecionada);
         }
     }
 }

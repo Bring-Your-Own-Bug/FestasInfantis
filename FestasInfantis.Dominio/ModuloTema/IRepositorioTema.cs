@@ -1,4 +1,6 @@
-﻿namespace FestasInfantis.Dominio.ModuloTema
+﻿using FestasInfantis.Dominio.ModuloFesta;
+
+namespace FestasInfantis.Dominio.ModuloTema
 {
     public interface IRepositorioTema
     {

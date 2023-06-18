@@ -47,14 +47,14 @@ namespace FestasInfantis.WinApp
 
         private void clienteMenuItem_Click(object sender, EventArgs e)
         {
-            _controlador = new ControladorCliente(_repositorioCliente);
+            _controlador = new ControladorCliente(_repositorioCliente, _repositorioAluguel);
 
             ConfigurarTelaPrincipal(_controlador);
         }
 
         private void festaMenuItem_Click(object sender, EventArgs e)
         {
-            _controlador = new ControladorFesta(_repositorioFesta, _repositorioTema);
+            _controlador = new ControladorFesta(_repositorioFesta, _repositorioTema, _repositorioAluguel);
 
             ConfigurarTelaPrincipal(_controlador);
         }
@@ -68,7 +68,7 @@ namespace FestasInfantis.WinApp
 
         private void temaMenuItem_Click(object sender, EventArgs e)
         {
-            _controlador = new ControladorTema(_repositorioTema);
+            _controlador = new ControladorTema(_repositorioTema, _repositorioFesta);
 
             ConfigurarTelaPrincipal(_controlador);
         }

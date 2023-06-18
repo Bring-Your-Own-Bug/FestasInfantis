@@ -1,15 +1,18 @@
-﻿using FestasInfantis.Dominio.ModuloCliente;
+﻿using FestasInfantis.Dominio.ModuloAluguel;
+using FestasInfantis.Dominio.ModuloCliente;
 
 namespace FestasInfantis.WinApp.ModuloCliente
 {
     internal class ControladorCliente : ControladorBase
     {
         private readonly IRepositorioCliente _repositorioCliente;
+        private readonly IRepositorioAluguel _repositorioAluguel;
         private TabelaClienteControl _tabelaCliente;
 
-        public ControladorCliente(IRepositorioCliente repositorioCliente)
+        public ControladorCliente(IRepositorioCliente repositorioCliente, IRepositorioAluguel repositorioAluguel)
         {
-            this._repositorioCliente = repositorioCliente;
+            _repositorioCliente = repositorioCliente;
+            _repositorioAluguel = repositorioAluguel;
         }
 
         public override string ToolTipInserir => "Inserir Novo Cliente";
@@ -52,12 +55,22 @@ namespace FestasInfantis.WinApp.ModuloCliente
         {
             Cliente clienteSelecionado = ObterClienteSelecionado();
 
+            List<Aluguel> alugueis = _repositorioAluguel.SelecionarTodos();
+
             if (clienteSelecionado == null)
             {
                 MessageBox.Show($"Selecione um cliente primeiro!",
                     "Edição de Clientes",
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Exclamation);
+                return;
+            }
+
+            if (ClienteTemAluguel(clienteSelecionado, alugueis))
+            {
+                MessageBox.Show($"O cliente \"{clienteSelecionado.Nome}\" tem um aluguel reservado!\n" +
+                    $"Delete o aluguel do cliente \"{clienteSelecionado.Nome}\" antes de excluí-lo",
+                    "Exclusão de Clientes", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
@@ -90,6 +103,11 @@ namespace FestasInfantis.WinApp.ModuloCliente
         private Cliente ObterClienteSelecionado()
         {
             return _repositorioCliente.SelecionarPorId(_tabelaCliente.ObterIdSelecionado());
+        }
+
+        private static bool ClienteTemAluguel(Cliente clienteSelecionado, List<Aluguel> alugueis)
+        {
+            return alugueis.Exists(aluguel => aluguel.Cliente != null && aluguel.Cliente == clienteSelecionado);
         }
     }
 }

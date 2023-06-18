@@ -1,4 +1,5 @@
-﻿using FestasInfantis.Dominio.ModuloTema;
+﻿using FestasInfantis.Dominio.ModuloFesta;
+using FestasInfantis.Dominio.ModuloTema;
 
 namespace FestasInfantis.WinApp.ModuloTema
 {

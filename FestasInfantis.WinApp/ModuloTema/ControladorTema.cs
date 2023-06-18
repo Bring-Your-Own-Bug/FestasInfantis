@@ -1,14 +1,17 @@
-﻿using FestasInfantis.Dominio.ModuloTema;
+﻿using FestasInfantis.Dominio.ModuloFesta;
+using FestasInfantis.Dominio.ModuloTema;
 
 namespace FestasInfantis.WinApp.ModuloTema
 {
     public class ControladorTema : ControladorBase
     {
         private readonly IRepositorioTema _repositorioTema;
+        private readonly IRepositorioFesta _repositorioFesta;
         private TabelaTemaControl _tabelaTema;
-        public ControladorTema(IRepositorioTema repositorioTema)
+        public ControladorTema(IRepositorioTema repositorioTema, IRepositorioFesta repositorioFesta)
         {
             _repositorioTema = repositorioTema;
+            _repositorioFesta = repositorioFesta;
         }
 
         public override string ToolTipInserir => "Inserir Novo Tema";
@@ -57,12 +60,24 @@ namespace FestasInfantis.WinApp.ModuloTema
         {
             Tema temaSelecionado = ObterTemaSelecionado();
 
+            List<Festa> festas = _repositorioFesta.SelecionarTodos();
+
             if (temaSelecionado == null)
             {
                 MessageBox.Show($"Selecione um tema primeiro!",
                     "Exclusão de Temas",
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Exclamation);
+                return;
+            }
+
+            if (TemaTemFesta(temaSelecionado, festas))
+            {
+                string? nomeFestaSelecionada = festas.FirstOrDefault(festa => festa.Tema != null && festa.Tema == temaSelecionado)?.Nome;
+
+                MessageBox.Show($"O tema \"{temaSelecionado.Nome}\" faz parte da festa \"{nomeFestaSelecionada}\"!\nExclua a festa" +
+                    $" \"{nomeFestaSelecionada}\" antes de excluir o tema \"{temaSelecionado.Nome}\"",
+                    "Exclusão de Temas", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
@@ -172,6 +187,11 @@ namespace FestasInfantis.WinApp.ModuloTema
         private Tema ObterTemaSelecionado()
         {
             return _repositorioTema.SelecionarPorId(_tabelaTema.ObterIdSelecionado());
+        }
+
+        private static bool TemaTemFesta(Tema temaSelecionado, List<Festa> festas)
+        {
+            return festas.Exists(festa => festa.Tema != null && festa.Tema == temaSelecionado);
         }
     }
 }
