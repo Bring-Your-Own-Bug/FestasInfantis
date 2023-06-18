@@ -22,7 +22,11 @@ namespace FestasInfantis.WinApp.ModuloTema
         private void btnAdicionar_Click(object sender, EventArgs e)
         {
             if (string.IsNullOrWhiteSpace(txtItem.Text))
-                return;            
+            {
+                MessageBox.Show("Adicione pelo menos um nome ao item!", "Adição de itens",
+                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }           
 
             string nome = txtItem.Text;
 
