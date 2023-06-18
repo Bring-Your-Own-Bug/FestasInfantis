@@ -39,7 +39,7 @@ namespace FestasInfantis.WinApp.ModuloTema
 
         private void txtValor_KeyPress_1(object sender, KeyPressEventArgs e)
         {
-            Utils.FormatarTxtNumerica(sender, e);
+            Utils.FormatarTxtNumericaDecimal(sender, e);
         }
 
         private void btnGravar_Click(object sender, EventArgs e)

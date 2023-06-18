@@ -45,7 +45,7 @@
             // 
             // txtId
             // 
-            txtId.Location = new Point(54, 29);
+            txtId.Location = new Point(72, 29);
             txtId.Name = "txtId";
             txtId.ReadOnly = true;
             txtId.Size = new Size(100, 23);
@@ -56,7 +56,7 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(30, 32);
+            label1.Location = new Point(48, 32);
             label1.Name = "label1";
             label1.Size = new Size(18, 15);
             label1.TabIndex = 21;
@@ -65,7 +65,7 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(17, 72);
+            label2.Location = new Point(31, 72);
             label2.Name = "label2";
             label2.Size = new Size(35, 15);
             label2.TabIndex = 23;
@@ -73,9 +73,9 @@
             // 
             // txtItem
             // 
-            txtItem.Location = new Point(54, 109);
+            txtItem.Location = new Point(72, 109);
             txtItem.Name = "txtItem";
-            txtItem.Size = new Size(332, 23);
+            txtItem.Size = new Size(314, 23);
             txtItem.TabIndex = 1;
             // 
             // btnAdicionar
@@ -133,17 +133,17 @@
             // 
             // txtTema
             // 
-            txtTema.Location = new Point(54, 69);
+            txtTema.Location = new Point(72, 69);
             txtTema.Name = "txtTema";
             txtTema.ReadOnly = true;
-            txtTema.Size = new Size(332, 23);
+            txtTema.Size = new Size(314, 23);
             txtTema.TabIndex = 30;
             txtTema.TabStop = false;
             // 
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(17, 112);
+            label3.Location = new Point(35, 112);
             label3.Name = "label3";
             label3.Size = new Size(31, 15);
             label3.TabIndex = 31;
@@ -152,18 +152,19 @@
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new Point(17, 152);
+            label4.Location = new Point(9, 152);
             label4.Name = "label4";
-            label4.Size = new Size(33, 15);
+            label4.Size = new Size(57, 15);
             label4.TabIndex = 32;
-            label4.Text = "Valor";
+            label4.Text = "Valor (R$)";
             // 
             // txtValor
             // 
-            txtValor.Location = new Point(54, 149);
+            txtValor.Location = new Point(72, 149);
             txtValor.Name = "txtValor";
-            txtValor.Size = new Size(332, 23);
+            txtValor.Size = new Size(314, 23);
             txtValor.TabIndex = 2;
+            txtValor.Text = "0";
             txtValor.KeyPress += txtValor_KeyPress;
             // 
             // TelaItemTemaForm

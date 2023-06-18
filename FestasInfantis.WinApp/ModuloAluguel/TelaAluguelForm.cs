@@ -87,7 +87,7 @@ namespace FestasInfantis.WinApp.ModuloAluguel
 
         private void txtValor_KeyPress(object sender, KeyPressEventArgs e)
         {
-            Utils.FormatarTxtNumerica(sender, e);
+            Utils.FormatarTxtNumericaDecimal(sender, e);
         }
 
         private void btnGravar_Click(object sender, EventArgs e)

@@ -26,7 +26,7 @@ namespace FestasInfantis.WinApp.ModuloTema
                 MessageBox.Show("Adicione pelo menos um nome ao item!", "Adição de itens",
                     MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
-            }           
+            }
 
             string nome = txtItem.Text;
 
@@ -43,7 +43,7 @@ namespace FestasInfantis.WinApp.ModuloTema
                 return;
             }
 
-                listaItens.Items.Add(itemTema);
+            listaItens.Items.Add(itemTema);
 
             txtItem.Text = "";
             txtValor.Text = "";
@@ -52,7 +52,7 @@ namespace FestasInfantis.WinApp.ModuloTema
 
         private void txtValor_KeyPress(object sender, KeyPressEventArgs e)
         {
-            Utils.FormatarTxtNumerica(sender, e);
+            Utils.FormatarTxtNumericaDecimal(sender, e);
         }
 
         private void btnDeletar_Click(object sender, EventArgs e)

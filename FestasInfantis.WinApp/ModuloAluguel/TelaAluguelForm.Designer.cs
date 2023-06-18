@@ -113,6 +113,7 @@
             txtValor.Name = "txtValor";
             txtValor.Size = new Size(118, 23);
             txtValor.TabIndex = 3;
+            txtValor.Text = "0";
             txtValor.KeyPress += txtValor_KeyPress;
             // 
             // btnCancelar

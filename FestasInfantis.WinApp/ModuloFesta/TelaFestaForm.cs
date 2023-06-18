@@ -88,7 +88,7 @@ namespace FestasInfantis.WinApp.ModuloFesta
 
         private void txtNumero_KeyPress(object sender, KeyPressEventArgs e)
         {
-            Utils.FormatarTxtNumerica(sender, e);
+            Utils.FormatarTxtNumericaInt(sender, e);
         }
     }
 }
