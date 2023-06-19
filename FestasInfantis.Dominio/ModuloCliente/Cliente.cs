@@ -38,6 +38,8 @@ namespace FestasInfantis.Dominio.ModuloCliente
 
             if (string.IsNullOrWhiteSpace(Nome))
                 erros.Add("O campo 'nome' é obrigatório");
+            else if (Nome.Length < 5)
+                erros.Add("O campo 'nome' deve conter no mínimo 5 dígitos");
             else if (!ehNomeValido)
                 erros.Add("O campo 'nome' está inválido");
 
