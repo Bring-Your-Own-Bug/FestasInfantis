@@ -30,8 +30,19 @@ namespace FestasInfantis.WinApp.ModuloTema
             TelaTemaForm telaTema = new();
 
             if (telaTema.ShowDialog() == DialogResult.OK)
-                _repositorioTema.Inserir(telaTema.ObterTema());
+            {
+                Tema tema = telaTema.ObterTema();
 
+                if (_repositorioTema.SelecionarTodos().Any(t => string.Equals(t.Nome, tema.Nome, StringComparison.OrdinalIgnoreCase)))
+                {
+                    MessageBox.Show("Não é possível adicionar temas iguais",
+                        "Cadastro de Tema", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+
+                _repositorioTema.Inserir(tema);
+            }
+                
             CarregarTemas();
         }
 
@@ -52,7 +63,11 @@ namespace FestasInfantis.WinApp.ModuloTema
             telaTema.ConfigurarForm(temaSelecionado);
 
             if (telaTema.ShowDialog() == DialogResult.OK)
+            {
+               
                 _repositorioTema.Editar(telaTema.ObterTema().Id, telaTema.ObterTema());
+            }
+                
 
             CarregarTemas();
         }

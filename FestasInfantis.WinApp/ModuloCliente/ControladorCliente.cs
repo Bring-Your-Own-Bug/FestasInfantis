@@ -25,7 +25,18 @@ namespace FestasInfantis.WinApp.ModuloCliente
             TelaClienteForm telaCliente = new();
 
             if (telaCliente.ShowDialog() == DialogResult.OK)
-                _repositorioCliente.Inserir(telaCliente.ObterCliente());
+            {
+                Cliente cliente = telaCliente.ObterCliente();
+
+                if (_repositorioCliente.SelecionarTodos().Any(c => string.Equals(c.Nome, cliente.Nome, StringComparison.OrdinalIgnoreCase)))
+                {
+                    MessageBox.Show("Não é possível adicionar clientes iguais",
+                        "Cadastro de Cliente", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+
+                _repositorioCliente.Inserir(cliente);
+            }
 
             CarregarClientes();
         }

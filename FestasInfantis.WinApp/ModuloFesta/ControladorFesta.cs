@@ -29,7 +29,26 @@ namespace FestasInfantis.WinApp.ModuloFesta
             TelaFestaForm telaFesta = new(temas);
 
             if (telaFesta.ShowDialog() == DialogResult.OK)
-                _repositorioFesta.Inserir(telaFesta.ObterFesta());
+            {
+                Festa festa = telaFesta.ObterFesta();
+
+                if (_repositorioFesta.SelecionarTodos()
+                    .Any(f => string.Equals(f.Nome, festa.Nome, StringComparison.OrdinalIgnoreCase)))
+                {
+                    MessageBox.Show("Não é possível adicionar festas iguais",
+                        "Cadastro de Festa", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+                else if (_repositorioFesta.SelecionarTodos()
+                    .Any(f => string.Equals(f.Tema.Nome, festa.Tema.Nome, StringComparison.OrdinalIgnoreCase)))
+                {
+                    MessageBox.Show($"Este tema já está sendo usado!",
+                        "Cadastro de Festa", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+
+                _repositorioFesta.Inserir(festa);
+            }
 
             CarregarFestas();
         }
