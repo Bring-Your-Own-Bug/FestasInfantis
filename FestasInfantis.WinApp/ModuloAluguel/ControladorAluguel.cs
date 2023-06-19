@@ -2,6 +2,7 @@
 using FestasInfantis.Dominio.ModuloAluguel;
 using FestasInfantis.Dominio.ModuloCliente;
 using FestasInfantis.Dominio.ModuloFesta;
+using FestasInfantis.Dominio.ModuloTema;
 
 namespace FestasInfantis.WinApp.ModuloAluguel
 {
@@ -74,7 +75,28 @@ namespace FestasInfantis.WinApp.ModuloAluguel
             telaAluguel.ConfigurarForm(aluguelSelecionado);
 
             if (telaAluguel.ShowDialog() == DialogResult.OK)
-                _repositorioAluguel.Editar(telaAluguel.ObterAluguel().Id, telaAluguel.ObterAluguel());
+            {
+                Aluguel aluguel = telaAluguel.ObterAluguel();
+
+                //ARRUMAR
+                if (_repositorioAluguel.SelecionarTodos()
+                    .Any(a => a.Cliente.Id != aluguelSelecionado.Cliente.Id && aluguel.Cliente.Equals(a.Cliente)))
+                {
+                    MessageBox.Show("Este cliente já tem um aluguel reservado!",
+                        "Edição de Aluguel", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+
+                if (_repositorioAluguel.SelecionarTodos()
+                    .Any(a => a.Festa.Id != aluguelSelecionado.Festa.Id && aluguel.Festa.Equals(a.Festa)))
+                {
+                    MessageBox.Show("Esta festa já está em um aluguel reservado!",
+                        "Edição de Aluguel", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+
+                _repositorioAluguel.Editar(aluguel.Id, aluguel);
+            }
 
             CarregarAlugueis();
         }

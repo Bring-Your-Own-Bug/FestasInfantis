@@ -33,7 +33,8 @@ namespace FestasInfantis.WinApp.ModuloTema
             {
                 Tema tema = telaTema.ObterTema();
 
-                if (_repositorioTema.SelecionarTodos().Any(t => string.Equals(t.Nome, tema.Nome, StringComparison.OrdinalIgnoreCase)))
+                if (_repositorioTema.SelecionarTodos()
+                    .Any(t => string.Equals(t.Nome, tema.Nome, StringComparison.OrdinalIgnoreCase)))
                 {
                     MessageBox.Show("Não é possível adicionar temas iguais",
                         "Cadastro de Tema", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -64,10 +65,18 @@ namespace FestasInfantis.WinApp.ModuloTema
 
             if (telaTema.ShowDialog() == DialogResult.OK)
             {
-               
-                _repositorioTema.Editar(telaTema.ObterTema().Id, telaTema.ObterTema());
+                Tema tema = telaTema.ObterTema();
+
+                if (_repositorioTema.SelecionarTodos()
+                    .Any(t => t.Id != temaSelecionado.Id && string.Equals(t.Nome, tema.Nome, StringComparison.OrdinalIgnoreCase)))
+                {
+                    MessageBox.Show("Não é possível adicionar temas iguais",
+                        "Edição de Tema", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+
+                _repositorioTema.Editar(tema.Id, tema);
             }
-                
 
             CarregarTemas();
         }

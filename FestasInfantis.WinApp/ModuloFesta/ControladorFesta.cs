@@ -48,6 +48,13 @@ namespace FestasInfantis.WinApp.ModuloFesta
                     return;
                 }
 
+                if (_repositorioFesta.SelecionarTodos().Any(f => f.Data.Date == festa.Data.Date))
+                {
+                    MessageBox.Show($"Já existe uma festa agendada nessa data!",
+                        "Cadastro de Festa", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+
                 _repositorioFesta.Inserir(festa);
             }
 
@@ -72,7 +79,27 @@ namespace FestasInfantis.WinApp.ModuloFesta
             telaFesta.ConfigurarForm(festaSelecionada);
 
             if (telaFesta.ShowDialog() == DialogResult.OK)
-                _repositorioFesta.Editar(telaFesta.ObterFesta().Id, telaFesta.ObterFesta());
+            {
+                Festa festa = telaFesta.ObterFesta();
+
+                if (_repositorioFesta.SelecionarTodos()
+                    .Any(f => f.Id != festaSelecionada.Id && string.Equals(f.Nome, festa.Nome, StringComparison.OrdinalIgnoreCase)))
+                {
+                    MessageBox.Show("Não é possível adicionar festas iguais",
+                        "Edição de Festa", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+
+                if (_repositorioFesta.SelecionarTodos()
+                    .Any(f => f.Id != festaSelecionada.Id && string.Equals(f.Tema.Nome, festa.Tema.Nome, StringComparison.OrdinalIgnoreCase)))
+                {
+                    MessageBox.Show($"Este tema já está sendo usado!",
+                        "Edição de Festa", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+
+                _repositorioFesta.Editar(festa.Id, festa);
+            }
 
             CarregarFestas();
         }

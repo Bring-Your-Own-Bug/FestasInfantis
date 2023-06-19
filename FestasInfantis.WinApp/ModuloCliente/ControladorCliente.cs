@@ -28,7 +28,8 @@ namespace FestasInfantis.WinApp.ModuloCliente
             {
                 Cliente cliente = telaCliente.ObterCliente();
 
-                if (_repositorioCliente.SelecionarTodos().Any(c => string.Equals(c.Nome, cliente.Nome, StringComparison.OrdinalIgnoreCase)))
+                if (_repositorioCliente.SelecionarTodos()
+                    .Any(c => string.Equals(c.Nome, cliente.Nome, StringComparison.OrdinalIgnoreCase)))
                 {
                     MessageBox.Show("Não é possível adicionar clientes iguais",
                         "Cadastro de Cliente", MessageBoxButtons.OK, MessageBoxIcon.Error);
