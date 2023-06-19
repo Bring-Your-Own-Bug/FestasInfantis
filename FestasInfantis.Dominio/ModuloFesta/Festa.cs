@@ -49,6 +49,8 @@ namespace FestasInfantis.Dominio.ModuloFesta
 
             if (string.IsNullOrWhiteSpace(Nome))
                 erros.Add("O campo 'titulo da festa' não pode estar vazio");
+            else if (Nome.Length < 3)
+                erros.Add("O campo 'titulo da festa' deve conter no mínimo 3 dígitos");
 
             if (Tema == null)
                 erros.Add("É obrigatório escolher um tema");

@@ -29,6 +29,12 @@ namespace FestasInfantis.WinApp.ModuloTema
                     MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
+            else if (txtItem.Text.Length < 3)
+            {
+                MessageBox.Show("O nome do item deve conter no mínimo 3 dígitos", "Adição de itens",
+                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }           
 
             string nome = txtItem.Text;
 

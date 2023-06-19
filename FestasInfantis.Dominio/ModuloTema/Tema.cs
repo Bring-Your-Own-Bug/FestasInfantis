@@ -3,9 +3,7 @@
     public class Tema : EntidadeBase<Tema>
     {
         public string Nome { get; set; }
-
         public List<ItemTema> Itens { get; set; }
-
         public decimal ValorTotal { get; set; }
 
         public Tema()
@@ -38,6 +36,9 @@
 
             if (string.IsNullOrWhiteSpace(Nome))
                 erros.Add("O campo 'tema' é obrigatório");
+            else if (Nome.Length < 3)
+                erros.Add("O campo 'nome' deve conter no mínimo 3 dígitos");
+
             if (ValorTotal < 0)
                 erros.Add("O campo 'valor' não pode ser negativo");
 
