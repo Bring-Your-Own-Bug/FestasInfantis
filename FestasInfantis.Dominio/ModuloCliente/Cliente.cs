@@ -31,17 +31,17 @@ namespace FestasInfantis.Dominio.ModuloCliente
 
         public override List<string> Validar()
         {
-            List<string> erros = new List<string>();
+            List<string> erros = new();
 
             bool ehTelefoneValido = Regex.IsMatch(Telefone, @"^\(\d{2}\) \d{5}-\d{4}$");
             bool ehNomeValido = Regex.IsMatch(Nome, @"^[\p{L}\p{M}'\s-]+$");
 
             if (string.IsNullOrWhiteSpace(Nome))
                 erros.Add("O campo 'nome' é obrigatório");
-            else if (Nome.Length < 5)
-                erros.Add("O campo 'nome' deve conter no mínimo 5 dígitos");
             else if (!ehNomeValido)
                 erros.Add("O campo 'nome' está inválido");
+            else if (Nome.Length < 3)
+                erros.Add("O campo 'nome' deve conter no mínimo 3 dígitos");
 
             if (Telefone == "(  )      -")
                 erros.Add("O campo 'telefone' é obrigatório");

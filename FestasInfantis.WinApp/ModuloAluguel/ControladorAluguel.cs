@@ -33,14 +33,16 @@ namespace FestasInfantis.WinApp.ModuloAluguel
             {
                 Aluguel aluguel = telaAluguel.ObterAluguel();
 
-                if (_repositorioAluguel.SelecionarTodos().Any(a => string.Equals(a.Cliente.Nome, aluguel.Cliente.Nome, StringComparison.OrdinalIgnoreCase)))
+                if (_repositorioAluguel.SelecionarTodos()
+                    .Any(a => string.Equals(a.Cliente.Nome, aluguel.Cliente.Nome, StringComparison.OrdinalIgnoreCase)))
                 {
                     MessageBox.Show("Este cliente já tem um aluguel reservado!",
                         "Cadastro de Aluguel", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
                 
-                if (_repositorioAluguel.SelecionarTodos().Any(a => string.Equals(a.Festa.Nome, aluguel.Festa.Nome, StringComparison.OrdinalIgnoreCase)))
+                if (_repositorioAluguel.SelecionarTodos()
+                    .Any(a => string.Equals(a.Festa.Nome, aluguel.Festa.Nome, StringComparison.OrdinalIgnoreCase)))
                 {
                     MessageBox.Show("Esta festa já está em um aluguel reservado!",
                         "Cadastro de Aluguel", MessageBoxButtons.OK, MessageBoxIcon.Error);
