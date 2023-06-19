@@ -39,7 +39,8 @@ namespace FestasInfantis.WinApp.ModuloFesta
                         "Cadastro de Festa", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
-                else if (_repositorioFesta.SelecionarTodos()
+
+                if (_repositorioFesta.SelecionarTodos()
                     .Any(f => string.Equals(f.Tema.Nome, festa.Tema.Nome, StringComparison.OrdinalIgnoreCase)))
                 {
                     MessageBox.Show($"Este tema já está sendo usado!",

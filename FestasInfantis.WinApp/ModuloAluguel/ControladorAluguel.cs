@@ -39,7 +39,8 @@ namespace FestasInfantis.WinApp.ModuloAluguel
                         "Cadastro de Aluguel", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
-                else if (_repositorioAluguel.SelecionarTodos().Any(a => string.Equals(a.Festa.Nome, aluguel.Festa.Nome, StringComparison.OrdinalIgnoreCase)))
+                
+                if (_repositorioAluguel.SelecionarTodos().Any(a => string.Equals(a.Festa.Nome, aluguel.Festa.Nome, StringComparison.OrdinalIgnoreCase)))
                 {
                     MessageBox.Show("Esta festa já está em um aluguel reservado!",
                         "Cadastro de Aluguel", MessageBoxButtons.OK, MessageBoxIcon.Error);
