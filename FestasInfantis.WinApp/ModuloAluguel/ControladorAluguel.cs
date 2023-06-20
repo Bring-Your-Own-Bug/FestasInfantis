@@ -78,7 +78,6 @@ namespace FestasInfantis.WinApp.ModuloAluguel
             {
                 Aluguel aluguel = telaAluguel.ObterAluguel();
 
-                //ARRUMAR
                 if (_repositorioAluguel.SelecionarTodos()
                     .Any(a => a.Cliente.Id != aluguelSelecionado.Cliente.Id && aluguel.Cliente.Equals(a.Cliente)))
                 {

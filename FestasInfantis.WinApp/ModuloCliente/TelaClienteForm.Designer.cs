@@ -131,7 +131,7 @@
             MinimizeBox = false;
             Name = "TelaClienteForm";
             ShowIcon = false;
-            Text = "Cadastro de Clientes";
+            Text = "S";
             ResumeLayout(false);
             PerformLayout();
         }

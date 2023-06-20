@@ -19,7 +19,7 @@ namespace FestasInfantis.WinApp
     {
         private ControladorBase _controlador;
 
-        private static ContextoDados _contextoDados = new(carregarDados: true);
+        private static readonly ContextoDados _contextoDados = new(carregarDados: true);
 
         private readonly IRepositorio<Tema> _repositorioTema = new RepositorioTemaEmArquivo(_contextoDados);
         private readonly IRepositorio<Festa> _repositorioFesta = new RepositorioFestaEmArquivo(_contextoDados);
